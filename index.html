@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Alqudusy | name | Expenses</title>
+</head>
+<body>
+    <nav id="nav-bar">
+        <div id="profile-info">
+            <i class="fa-solid fa-user"></i>
+            <p id="profile-name">Your Name</p>
+        </div>
+        <div id="nav-links">
+            <i class="fas fa-home"></i>
+            <p>Home</p>
+        </div>
+        <div id="nav-links">
+            <i class="fa-solid fa-plane-departure"></i>
+            <p>Trip</p>
+        </div>
+        <div id="nav-links">
+            <i class="fa-solid fa-check"></i>
+            <p>Approvals</p>
+        </div>
+        <div id="nav-links">
+            <i class="fa-solid fa-credit-card"></i>
+            <p>Expenses</p>
+        </div>
+        <div id="nav-links">
+            <i class="fa-solid fa-gear"></i>
+            <p>Setting</p>
+        </div>
+        <div id="nav-links">
+            <i class="fa-solid fa-phone"></i>
+            <p>Support</p>
+        </div>
+    </nav>
+    <main>
+        <table id="pending-tasks">
+            <tr>
+                <th colspan="2">Pending tasks</th>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><i class="fa-solid fa-clock"></i>Pending Approvals</li>
+                    </ul>
+                </td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><i class="fa-solid fa-plane"></i>New Trip Registered</li>
+                    </ul>
+                </td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><i class="fa-solid fa-file-invoice"></i>Unreported Expenses</li>
+                    </ul>
+                </td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><i class="fa-solid fa-calendar-alt"></i>Future Expenses</li>
+                    </ul>
+                </td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li><i class="fa-solid fa-circle-exclamation"></i>Unreported Advances</li>
+                    </ul>
+                </td>
+                <td>N0.00</td>
+            </tr>
+        </table>
+        <table id="recent-expenses">
+            <tr>
+                <th colspan="4">Recent Expenses</th>
+            </tr>
+            <tr>
+                <th>Subject</th>
+                <th>Employee</th>
+                <th>Team</th>
+                <th>Amount</th>
+            </tr>
+            <tr>
+                <td>Office Supplies</td>
+                <td>John smith</td>
+                <td>Marketing</td>
+                <td>$150.00</td>
+            </tr>
+            <tr>
+                <td>Business Lunch</td>
+                <td>Sarah Jade</td>
+                <td>Sales</td>
+                <td>$75.00</td>
+            </tr>
+            <tr>
+                <td>Travel Expenses</td>
+                <td>Mike Brown</td>
+                <td>Operations</td>
+                <td>$450.25</td>
+            </tr>
+            <tr>
+                <td>Client Dinner</td>
+                <td>Jennifer Lee</td>
+                <td>Marketing</td>
+                <td>$120.00</td>
+            </tr>
+            <tr>
+                <td>Hotel</td>
+                <td>David wilson</td>
+                <td>Finance</td>
+                <td>$275.75</td>
+            </tr>
+        </table>
+        <section id="quick-access">
+            <h4>Quick Access</h4>
+            <div id="new-expense"><i class="fa-solid fa-credit-card"></i>+New Expense</div>
+            <div><i class="fa-solid fa-plane"></i>+Create trip</div>
+        </section>
+        <div id="monthly-report">
+            <p>Monthly Report</p>
+            <canvas id="chart1"></canvas>
+            <canvas id="chart2"></canvas>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

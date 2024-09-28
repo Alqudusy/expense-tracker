@@ -1,0 +1,207 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+}
+
+#nav-bar {
+  display: flex;
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  flex-direction: column;
+  padding: 1rem;
+  width: 20%;
+}
+
+main {
+  background-color: #fafafa;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 0;
+  gap: 1rem;
+  justify-content: space-between;
+  width: 75%;
+  height: 130%;
+  margin: 1rem;
+  padding: 3rem 1rem 1rem 1rem;
+}
+
+
+
+#profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  font-size: 20px;
+  padding: 1rem;
+}
+
+#profile-info i {
+  font-size: 70px;
+  border-radius: 50%;
+}
+
+#nav-links {
+  display: flex;
+  align-items: center; /* Vertically center the SVG and text */
+  height: 3rem; /* Remove the fixed height if not needed */
+  width: 100%;
+  background-color: white;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  border-radius: 7px;
+  padding-left: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.562);
+  transition: all 0.5s ease;
+}
+
+#nav-links:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.562);
+}
+
+#nav-links i {
+  color: rgb(194, 26, 54);
+}
+
+#pending-tasks {
+  width: 45%;
+  height: 20%;
+  border-radius: 5px;
+  background-color: #f1eeee;
+  padding: 0;
+  border: 1px solid rgb(201, 201, 201);
+}
+
+#pending-tasks th {
+  text-align: left;
+  width: 100% !important;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  padding: 0.5rem;
+}
+
+#pending-tasks td {
+  border-collapse: collapse;
+}
+
+#pending-tasks td i {
+  margin-right: 1rem;
+  margin-left: 0;
+  text-align: left;
+  font-size: smaller;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#recent-expenses {
+  width: 52%;
+  height: 20%;
+  border: 1px solid rgb(201, 201, 201);
+  background-color: #f1eeee;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+#recent-expenses th {
+  text-align: left;
+  border-bottom: 1px solid rgb(201, 201, 201);
+  padding: 0.5rem;
+  border-collapse: collapse;
+}
+
+#recent-expenses td {
+  border-collapse: collapse;
+  padding: 0.73rem;
+}
+
+#nav-links p {
+  font-size: 20px; /* Set a font size */
+  margin-left: 1rem;
+}
+
+#quick-access {
+  width: 100%;
+  height: 22%;
+  display: flex;
+  background-color: #f1eeee;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5px;
+  padding: 0;
+  position: relative; /* Added to help position the h4 */
+}
+
+#quick-access h4 {
+  width: 100%; /* Take full width */
+  padding: 0.5rem 1rem; /* Add padding for spacing */
+  margin: 0; /* Remove margin */
+  border-bottom: 1px solid rgb(201, 201, 201); /* Border bottom line */
+  position: absolute; /* Absolute positioning */
+  left: 0;
+  z-index: 1; /* Ensure it stays on top */
+}
+
+#quick-access div {
+  margin-top: 5rem;
+  background-color: rgb(196, 196, 196);
+  margin-bottom: 3rem;
+  width: 20%;
+  height: 25%;
+  padding: 1rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.562);
+  transition: all 0.5s ease;
+}
+
+#quick-access div:hover {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.562);
+}
+
+#monthly-report {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: rgb(235, 235, 235);
+  border: 1px solid rgb(201, 201, 201);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+#monthly-report {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#monthly-report p {
+  width: 100%;
+  font-weight: 900;
+  margin: 0;
+  border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+#monthly-report canvas {
+  width: 50% !important;
+  height: 100% !important;
+}
