@@ -1,6 +1,93 @@
+#header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    height: 3rem;
+}
+#header button  {
+    cursor: pointer;
+    margin-top: 1rem;
+    height: 1.5rem;
+    background-color: rgba(230, 230, 230, 0.144);
+    border: 1px solid rgb(151, 150, 150);
+    border-radius: 3px;
+    font-size: 10px;
+}
+
+#input-field-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .expense-form {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
+}
+
+.expense-form input, select {
+    height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgba(175, 175, 175, 0.568);
+}
+
+#description {
+    height: 5rem;
+}
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(175, 175, 175, 0.568);
+    border: 2px dashed #ffffff;
+    border-radius: 10px;
+    width: 48%;
+    height: 70%;
+    transition: background-color 0.3s;
+}
+
+.upload-container:hover {
+    background-color: #bebebe; /* Lighter on hover */
+}
+
+#file-input {
+    display: none; /* Hide default file input */
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-icon {
+    font-size: 40px; /* Icon size */
+    color: #ffffff; /* Icon color */
+}
+
+.upload-text {
+    margin-top: 10px; /* Space between icon and text */
+    color: #aaaaaa; /* Light gray text color */
+    text-align: center;
+}
+
+#submit-button {
+    height: 2rem;
+    width: 20%;
+    background-color: #bebebe;
+    border: 0;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 3rem;
+    position: fixed;
+    right: 5rem;
+    bottom: 1rem;
 }

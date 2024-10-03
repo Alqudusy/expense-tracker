@@ -8,11 +8,65 @@ class ExpenseApp {
         newExpenseButton.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
+        this.renderEventListener();
     }
+    
+
+    renderEventListener() {
+            this.showNewExpenseForm();
+    }
+
 
     showNewExpenseForm() {
         const mainDivToRemove = document.querySelector('.main');
+        const copyOfMain = mainDivToRemove.cloneNode(true);
+        const uploadContainer = document.createElement('div');
+        uploadContainer.className = 'upload-container';
+
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.id = 'file-input';
+        fileInput.accept = 'image/*';
+        fileInput.style.display = 'none';
+        
+        const uploadLabel = document.createElement('label');
+        uploadLabel.setAttribute('for', 'file-input');
+        uploadLabel.className = 'upload-label';
+        
+        const uploadIcon = document.createElement('span');
+        uploadIcon.className = 'upload-icon';
+        uploadIcon.innerText = '+';
+        
+        const uploadText = document.createElement('span');
+        uploadText.className = 'upload-text';
+        uploadText.innerText = 'Upload an invoice';
+        
+        uploadLabel.appendChild(uploadIcon);
+        uploadLabel.appendChild(uploadText);
+        uploadContainer.appendChild(fileInput);
+        uploadContainer.appendChild(uploadLabel);
+
+
+        fileInput.addEventListener('change', () => {
+            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'Upload an invoice';
+            uploadText.innerText = fileName;
+        });
+
+
         const newDiv = document.createElement('div');
+        newDiv.setAttribute('id', 'form-div')
+
+        const headerDiv = document.createElement('div');
+        headerDiv.setAttribute('id', 'header');
+        const headerH2 = document.createElement('h2');
+        headerH2.textContent = 'New expense';
+        const headerBtn = document.createElement('button');
+        headerBtn.innerText = "X";
+        headerBtn.setAttribute('id', 'header-btn');
+
+        headerDiv.append(headerH2, headerBtn);
+
+
         const form = document.createElement('form');
         form.classList.add('expense-form');
 
@@ -45,7 +99,7 @@ class ExpenseApp {
 
         const totalInputField = document.createElement('input');
         const labelTotal = document.createElement('label');
-        labelTotal.textContent = 'total'
+        labelTotal.textContent = 'Total'
         labelTotal.setAttribute('for', 'total');
         const totalAttributes = {
             'id': 'total',
@@ -80,7 +134,7 @@ class ExpenseApp {
 
         const labelDescription = document.createElement('label');
         labelDescription.setAttribute('for', 'description');
-        labelDescription.textContent = "description"
+        labelDescription.textContent = "Description";
         const descriptionInputField = document.createElement('input');
         descriptionInputField.setAttribute('id', 'description');
 
@@ -91,13 +145,40 @@ class ExpenseApp {
         const employeeInputField = document.createElement('input');
         employeeInputField.setAttribute('id', 'employee');
 
+        const submitBtn = document.createElement('button');
+        submitBtn.innerText = "Submit"
+        submitBtn.setAttribute('id', 'submit-button');
+        submitBtn.setAttribute('type', 'submit');
+
 
         newDiv.classList.add('main');
-        form.append(labelSubject, subjectInputField, labelMerchant, merchantInputField, labelDate, dateInputField, labelTotal, totalInputField, currencySelector, categorySelector, employeeInputField);
-        newDiv.appendChild(form);
+        form.append(labelSubject,
+             subjectInputField,
+             labelMerchant,
+             merchantInputField,
+             labelDate,
+             dateInputField,
+             labelTotal,
+             totalInputField,
+             currencySelector,
+             categorySelector,
+             labelEmployee,
+             employeeInputField,
+             labelDescription,
+             descriptionInputField,
+             submitBtn);
+        newDiv.append(headerDiv, form, uploadContainer);
         document.querySelector('body').removeChild(mainDivToRemove);
         document.querySelector('body').appendChild(newDiv);
-        console.log(window.getComputedStyle(newDiv));
+        document.querySelector('#header-btn').addEventListener('click', () => {
+            document.querySelector('#header-btn').parentElement.parentNode.remove();
+            document.querySelector('body').appendChild(copyOfMain);
+            const mainElement = document.querySelector('.main');
+            mainElement.querySelector('#new-expense').addEventListener('click', () => {
+                this.renderEventListener();
+            })
+            renderChart();
+        });
     }
 }
 new ExpenseApp();
