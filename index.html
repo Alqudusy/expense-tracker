@@ -129,7 +129,7 @@
         <section id="quick-access">
             <h4>Quick Access</h4>
             <div id="new-expense"><i class="fa-solid fa-credit-card"></i>+New Expense</div>
-            <div><i class="fa-solid fa-plane"></i>+Create trip</div>
+            <div id="new-trip"><i class="fa-solid fa-plane"></i>+Create trip</div>
         </section>
         <div id="monthly-report">
             <p>Monthly Report</p>
@@ -137,6 +137,127 @@
             <canvas id="chart2"></canvas>
         </div>
     </main>
+    <div id="form-div">
+        <div id="header-div">
+            <h2>Expense Form</h2>
+            <button class="cancle-button">&times;</button>
+        </div>
+        <form action="#" id="expense-form">
+            <label for="subject">Subject*</label>
+            <input type="text" name="Subject" id="subject" required/>
+            <label for="merchant">Merchant</label>
+            <input type="text" name="merchant" id="merchant"/>
+            <label for="date">Date*</label>
+            <input type="date" name="date" id="date" required/>
+            <label for="total">Total</label>
+            <input type="number" name="total" id="total" required/>
+            <label for="currency">Currency*</label>
+            <select name="currency" id="currency" required>
+                <option value="Currency">Currency</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
+            <label for="expense-type">Expense type</label>
+            <select name="expense-type" id="expense-type">
+                <option value="expense-type">Expense type</option>
+                <option value="trip">Trip</option>
+                <option value="services">Services</option>
+                <option value="catering">Catering</option>
+            </select>
+            <label for="employee">Employee</label>
+            <input type="text" name="employee" id="employee"/>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description"/>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="image-input-div">
+            <p>&plus;</p>
+            <label for="invoice">Invoice</label>
+            <input type="file" name="invoice" id="invoice" accept="image/*">
+        </div>
+    </div>
+    </main>
+    <div id="form-div">
+        <div id="header-div">
+            <h2>Expense Form</h2>
+            <button class="cancle-button">&times;</button>
+        </div>
+        <form action="#" id="expense-form">
+            <label for="subject">Subject*</label>
+            <input type="text" name="Subject" id="subject" required/>
+            <label for="merchant">Merchant</label>
+            <input type="text" name="merchant" id="merchant"/>
+            <label for="date">Date*</label>
+            <input type="date" name="date" id="date" required/>
+            <label for="total">Total</label>
+            <input type="number" name="total" id="total" required/>
+            <label for="currency">Currency*</label>
+            <select name="currency" id="currency" required>
+                <option value="Currency">Currency</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
+            <label for="expense-type">Expense type</label>
+            <select name="expense-type" id="expense-type">
+                <option value="expense-type">Expense type</option>
+                <option value="trip">Trip</option>
+                <option value="services">Services</option>
+                <option value="catering">Catering</option>
+            </select>
+            <label for="employee">Employee</label>
+            <input type="text" name="employee" id="employee"/>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description"/>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="image-input-div">
+            <p>&plus;</p>
+            <label for="invoice">Invoice</label>
+            <input type="file" name="invoice" id="invoice" accept="image/*">
+        </div>
+    </div>
+    <div id="form-div" style="display: flex !important;">
+        <div id="header-div">
+            <h2>Expense Form</h2>
+            <button class="cancle-button">&times;</button>
+        </div>
+        <form action="#" id="expense-form">
+            <label for="subject">Subject*</label>
+            <input type="text" name="Subject" id="subject" required/>
+            <label for="merchant">Merchant</label>
+            <input type="text" name="merchant" id="merchant"/>
+            <label for="date">Date*</label>
+            <input type="date" name="date" id="date" required/>
+            <label for="total">Total</label>
+            <input type="number" name="total" id="total" required/>
+            <label for="currency">Currency*</label>
+            <select name="currency" id="currency" required>
+                <option value="Currency">Currency</option>
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
+            <label for="expense-type">Expense type</label>
+            <select name="expense-type" id="expense-type">
+                <option value="expense-type">Expense type</option>
+                <option value="trip">Trip</option>
+                <option value="services">Services</option>
+                <option value="catering">Catering</option>
+            </select>
+            <label for="employee">Employee</label>
+            <input type="text" name="employee" id="employee"/>
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description"/>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="image-input-div">
+            <p>&plus;</p>
+            <label for="invoice">Invoice</label>
+            <input type="file" name="invoice" id="invoice" accept="image/*">
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="chart.js"></script>
 <script src="script.js"></script>
