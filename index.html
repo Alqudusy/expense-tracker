@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="table.css">
     <title>Alqudusy | name | Expenses</title>
 </head>
 <body>
@@ -13,18 +14,19 @@
         <div id="profile-info">
             <i class="fa-solid fa-user"></i>
             <p id="profile-name">Your Name</p>
+            <p>Balance: $1000</p>
         </div>
-        <div id="nav-links">
+        <div id="nav-links" class="home-btn">
             <i class="fas fa-home"></i>
             <p>Home</p>
         </div>
         <div id="nav-links">
             <i class="fa-solid fa-plane-departure"></i>
-            <p>Trip</p>
+            <p>Trips</p>
         </div>
         <div id="nav-links">
-            <i class="fa-solid fa-check"></i>
-            <p>Approvals</p>
+            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+            <p>Incomes</p>
         </div>
         <div id="nav-links">
             <i class="fa-solid fa-credit-card"></i>
@@ -130,6 +132,7 @@
             <h4>Quick Access</h4>
             <div id="new-expense"><i class="fa-solid fa-credit-card"></i>+New Expense</div>
             <div id="new-trip"><i class="fa-solid fa-plane"></i>+Create trip</div>
+            <div id="new-income"><i class="fa-solid fa-file-invoice-dollar"></i>+Add income</div>
         </section>
         <div id="monthly-report">
             <p>Monthly Report</p>
@@ -137,10 +140,10 @@
             <canvas id="chart2"></canvas>
         </div>
     </main>
-    <div id="form-div">
+    <div id="form-div" class="expense-form">
         <div id="header-div">
-            <h2>Expense Form</h2>
-            <button class="cancle-button">&times;</button>
+            <h2>New Expense Form</h2>
+            <button class="cancle-button" id="close-expense-btn">&times;</button>
         </div>
         <form action="#" id="expense-form">
             <label for="subject">Subject*</label>
@@ -151,13 +154,6 @@
             <input type="date" name="date" id="date" required/>
             <label for="total">Total</label>
             <input type="number" name="total" id="total" required/>
-            <label for="currency">Currency*</label>
-            <select name="currency" id="currency" required>
-                <option value="Currency">Currency</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
-            </select>
             <label for="expense-type">Expense type</label>
             <select name="expense-type" id="expense-type">
                 <option value="expense-type">Expense type</option>
@@ -165,8 +161,12 @@
                 <option value="services">Services</option>
                 <option value="catering">Catering</option>
             </select>
-            <label for="employee">Employee</label>
-            <input type="text" name="employee" id="employee"/>
+            <label for="method">Payment method</label>
+            <select name="Payment Method" id="method">
+                <option value="cash">Cash</option>
+                <option value="debit card">Debit card</option>
+                <option value="transfer">Transfer</option>
+            </select>
             <label for="description">Description</label>
             <input type="text" name="description" id="description"/>
             <button type="submit">Submit</button>
@@ -178,36 +178,33 @@
         </div>
     </div>
     </main>
-    <div id="form-div">
+    <div id="form-div" class="trip-form">
         <div id="header-div">
-            <h2>Expense Form</h2>
-            <button class="cancle-button">&times;</button>
+            <h2>New trip Form</h2>
+            <button class="cancle-button" id="close-trip-form">&times;</button>
         </div>
         <form action="#" id="expense-form">
-            <label for="subject">Subject*</label>
-            <input type="text" name="Subject" id="subject" required/>
-            <label for="merchant">Merchant</label>
+            <label for="from">From:</label>
+            <input type="text" name="Subject" id="from" required/>
+            <label for="merchant">To:</label>
             <input type="text" name="merchant" id="merchant"/>
-            <label for="date">Date*</label>
+            <label for="date">Date of departing*</label>
             <input type="date" name="date" id="date" required/>
-            <label for="total">Total</label>
+            <label for="total">Total amount spent</label>
             <input type="number" name="total" id="total" required/>
-            <label for="currency">Currency*</label>
-            <select name="currency" id="currency" required>
-                <option value="Currency">Currency</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
-            </select>
-            <label for="expense-type">Expense type</label>
+            <label for="expense-type">Mode of transportation</label>
             <select name="expense-type" id="expense-type">
-                <option value="expense-type">Expense type</option>
-                <option value="trip">Trip</option>
-                <option value="services">Services</option>
-                <option value="catering">Catering</option>
+                <option value="expense-type">Mode of transportation</option>
+                <option value="rail">Rail</option>
+                <option value="air">Air</option>
+                <option value="road">Road</option>
             </select>
-            <label for="employee">Employee</label>
-            <input type="text" name="employee" id="employee"/>
+            <label for="method">Payment method</label>
+            <select name="Payment Method" id="method">
+                <option value="cash">Cash</option>
+                <option value="debit card">Debit card</option>
+                <option value="transfer">Transfer</option>
+            </select>
             <label for="description">Description</label>
             <input type="text" name="description" id="description"/>
             <button type="submit">Submit</button>
@@ -218,36 +215,24 @@
             <input type="file" name="invoice" id="invoice" accept="image/*">
         </div>
     </div>
-    <div id="form-div" style="display: flex !important;">
+    <div id="form-div" class="income-form">
         <div id="header-div">
-            <h2>Expense Form</h2>
-            <button class="cancle-button">&times;</button>
+            <h2>New income form</h2>
+            <button class="cancle-button" id="close-income-form">&times;</button>
         </div>
-        <form action="#" id="expense-form">
-            <label for="subject">Subject*</label>
-            <input type="text" name="Subject" id="subject" required/>
-            <label for="merchant">Merchant</label>
-            <input type="text" name="merchant" id="merchant"/>
-            <label for="date">Date*</label>
+        <form action="#" id="expense-form" style="margin-top: -15rem !important;">
+            <label for="source">Source</label>
+            <input type="text" name="source" id="source" required/>
+            <label for="date">Date</label>
             <input type="date" name="date" id="date" required/>
-            <label for="total">Total</label>
+            <label for="total">Total amount recieved</label>
             <input type="number" name="total" id="total" required/>
-            <label for="currency">Currency*</label>
-            <select name="currency" id="currency" required>
-                <option value="Currency">Currency</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-                <option value="GBP">GBP</option>
+            <label for="method">Payment method</label>
+            <select name="Payment Method" id="method">
+                <option value="cash">Cash</option>
+                <option value="debit card">Debit card</option>
+                <option value="transfer">Transfer</option>
             </select>
-            <label for="expense-type">Expense type</label>
-            <select name="expense-type" id="expense-type">
-                <option value="expense-type">Expense type</option>
-                <option value="trip">Trip</option>
-                <option value="services">Services</option>
-                <option value="catering">Catering</option>
-            </select>
-            <label for="employee">Employee</label>
-            <input type="text" name="employee" id="employee"/>
             <label for="description">Description</label>
             <input type="text" name="description" id="description"/>
             <button type="submit">Submit</button>
@@ -257,6 +242,42 @@
             <label for="invoice">Invoice</label>
             <input type="file" name="invoice" id="invoice" accept="image/*">
         </div>
+    </div>
+    <div id="expenses-div">
+        <div id="expenses-div-header">
+            <h2>Expenses</h2>
+            <button>Add new expense</button>
+        </div>
+        <table id="expenses">
+            <tr>
+                <th>DETAILS</th>
+                <th>MERCHANT</th>
+                <th>AMOUNT SPENT</th>
+                <th>DATE</th>
+                <th>PAYMENT METHOD</th>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
+                <td>N2000</td>
+                <td>November_2020</td>
+                <td>Cash</td>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
+                <td>N2000</td>
+                <td>November_2020</td>
+                <td>Cash</td>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
+                <td>N2000</td>
+                <td>November_2020</td>
+                <td>Cash</td>
+            </tr>
+        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="chart.js"></script>

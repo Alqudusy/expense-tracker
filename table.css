@@ -1,0 +1,49 @@
+#expenses-div {
+    position: absolute;
+    right: 1.5rem;
+    z-index: 101;
+    width: 74%;
+    height: 120%;
+    background-color: rgb(196, 196, 196);
+    padding: 2rem 1rem 2rem 1rem;
+    display: none;
+}
+
+#expenses-div h2 {
+    margin: 0;
+    padding: 0;
+}
+
+#expenses-div th {
+    background-color: rgb(88, 88, 88);
+}
+
+#expenses td, th{
+    height: 3rem;
+    text-align: left;
+    padding: 1rem;
+}
+
+#expenses-div #expenses-div-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0rem 0 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+#expenses-div-header button {
+    height: 2rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: #dddddd;
+}
+
+#expenses {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#expenses tr:nth-child(even) {
+    background-color: #dddddd;
+}
