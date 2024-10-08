@@ -67,12 +67,12 @@ class ExpenseApp {
     toHome() {
         if (document.querySelector('.income-form').style.display = 'flex') {
             this.closeIncomeForm();
-        } else if (document.querySelector('.trip-form').style.display = 'flex') {
+        }
+        if (document.querySelector('.trip-form').style.display = 'flex') {
             this.closeTripForm();
-        } else if (document.querySelector('.expense-form').style.display = 'flex') {
+        }
+        if (document.querySelector('.expense-form').style.display = 'flex') {
             this.closeExpenseForm();
-        } else {
-            return;
         }
     }
 }
