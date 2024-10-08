@@ -11,6 +11,7 @@ class ExpenseApp {
         const newIncomeBtn = document.querySelector('#new-income');
         const closeNewIncomeBtn = document.querySelector('#close-income-form');
         const homeBotton = document.querySelector('.home-btn');
+        const expensesButton = document.querySelector('.expenses-btn');
         newExpenseButton.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
@@ -31,6 +32,9 @@ class ExpenseApp {
         });
         homeBotton.addEventListener('click', () => {
             this.toHome();
+        });
+        expensesButton.addEventListener('click', () => {
+            this.showExpenses();
         });
     }
 
@@ -74,6 +78,19 @@ class ExpenseApp {
         if (document.querySelector('.expense-form').style.display = 'flex') {
             this.closeExpenseForm();
         }
+        if (document.querySelector('#expenses-div').style.display = 'block') {
+            this.closeExpenses();
+        }
+    }
+
+    showExpenses() {
+        const expensesTable = document.querySelector('#expenses-div');
+        expensesTable.style.display = 'block';
+    }
+
+    closeExpenses() {
+        const expensesTable = document.querySelector('#expenses-div');
+        expensesTable.style.display = 'none';
     }
 }
 new ExpenseApp();

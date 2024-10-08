@@ -1,4 +1,5 @@
-#expenses-div {
+#expenses-div, #trips-div {
+    font-weight: 900;
     position: absolute;
     right: 1.5rem;
     z-index: 101;
@@ -9,16 +10,30 @@
     display: none;
 }
 
-#expenses-div h2 {
+#trips {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#trips-div-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 0rem 0 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+#expenses-div h2, #trips-div-header h2 {
     margin: 0;
     padding: 0;
 }
 
-#expenses-div th {
+#expenses-div th, #trips-div th {
     background-color: rgb(88, 88, 88);
 }
 
-#expenses td, th{
+#expenses td, th, #trips td, th{
     height: 3rem;
     text-align: left;
     padding: 1rem;
@@ -44,6 +59,6 @@
     border-collapse: collapse;
 }
 
-#expenses tr:nth-child(even) {
+#expenses tr:nth-child(even), #trips tr:nth-child(even) {
     background-color: #dddddd;
 }
