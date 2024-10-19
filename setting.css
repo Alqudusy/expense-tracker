@@ -1,0 +1,53 @@
+#setting-div {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    width: 76%;
+    background-color: rgb(196, 196, 196);
+    height: 120%;
+    padding: 0;
+    z-index: 101;
+}
+
+#setting-header {
+    margin-left: 1rem;
+}
+
+#themes {
+    height: 5rem;
+    display: flex;
+    padding: 1rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dddddd;
+}
+
+#themes p {
+    cursor: pointer;
+}
+
+#theme-toggler {
+    display: none;
+}
+
+#toggle-btn {
+    display: flex;
+    height: 2.5rem;
+    width: 7%;
+    border-radius: 50px;
+    padding: 5px;
+    background-color: white;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#toggle-btn span {
+    height: 80%;
+    border-radius: 70px;
+    width: 50%;
+    background-color: rgb(146, 142, 142);
+}

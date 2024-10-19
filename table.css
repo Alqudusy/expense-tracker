@@ -1,4 +1,4 @@
-#expenses-div, #trips-div {
+#expenses-div, #trips-div, #incomes-div {
     font-weight: 900;
     position: absolute;
     right: 1.5rem;
@@ -15,7 +15,7 @@
     width: 100%;
 }
 
-#trips-div-header {
+#trips-div-header, #incomes-div-header {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -24,16 +24,16 @@
     border-bottom: 1px solid rgb(187, 187, 187);
 }
 
-#expenses-div h2, #trips-div-header h2 {
+#expenses-div h2, #trips-div-header h2, #incomes-div-header h2 {
     margin: 0;
     padding: 0;
 }
 
-#expenses-div th, #trips-div th {
+#expenses-div th, #trips-div th, #incomes-div th {
     background-color: rgb(88, 88, 88);
 }
 
-#expenses td, th, #trips td, th{
+#expenses td, th, #trips td, th, #incomes td, th{
     height: 3rem;
     text-align: left;
     padding: 1rem;
@@ -54,11 +54,20 @@
     background-color: #dddddd;
 }
 
-#expenses {
+#expenses, #incomes {
     width: 100%;
     border-collapse: collapse;
 }
 
 #expenses tr:nth-child(even), #trips tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+#incomes-div-header button,
+#trips-div-header button,
+#expenses-div-header button {
+    cursor: pointer;
+    font-weight: 900;
+    border: 0;
+    border-radius: 5px;
 }

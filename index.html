@@ -7,95 +7,51 @@
     <link rel="stylesheet" href="form.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="table.css">
+    <link rel="stylesheet" href="setting.css">
     <title>Alqudusy | name | Expenses</title>
 </head>
 <body>
     <nav id="nav-bar">
-        <div id="profile-info">
+        <a id="profile-info">
             <i class="fa-solid fa-user"></i>
             <p id="profile-name">Your Name</p>
             <p>Balance: $1000</p>
-        </div>
-        <div id="nav-links" class="home-btn">
+        </a>
+        <a id="nav-links" class="home-btn">
             <i class="fas fa-home"></i>
             <p>Home</p>
         </div>
-        <div id="nav-links">
+        <a id="nav-links" class="trips-btn">
             <i class="fa-solid fa-plane-departure"></i>
             <p>Trips</p>
-        </div>
-        <div id="nav-links">
+        </a>
+        <a id="nav-links" class="incomes-btn">
             <i class="fa-solid fa-circle-dollar-to-slot"></i>
             <p>Incomes</p>
-        </div>
-        <div id="nav-links" class="expenses-btn">
+        </a>
+        <a id="nav-links" class="expenses-btn">
             <i class="fa-solid fa-credit-card"></i>
             <p>Expenses</p>
-        </div>
-        <div id="nav-links">
+        </a>
+        <a id="nav-links" class="settings-btn">
             <i class="fa-solid fa-gear"></i>
             <p>Setting</p>
-        </div>
-        <div id="nav-links">
+        </a>
+        <a id="nav-links">
             <i class="fa-solid fa-phone"></i>
             <p>Support</p>
-        </div>
+        </a>
     </nav>
     <main class="main">
-        <table id="pending-tasks">
-            <tr>
-                <th colspan="2">Pending tasks</th>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><i class="fa-solid fa-clock"></i>Pending Approvals</li>
-                    </ul>
-                </td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><i class="fa-solid fa-plane"></i>New Trip Registered</li>
-                    </ul>
-                </td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><i class="fa-solid fa-file-invoice"></i>Unreported Expenses</li>
-                    </ul>
-                </td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><i class="fa-solid fa-calendar-alt"></i>Future Expenses</li>
-                    </ul>
-                </td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>
-                    <ul>
-                        <li><i class="fa-solid fa-circle-exclamation"></i>Unreported Advances</li>
-                    </ul>
-                </td>
-                <td>N0.00</td>
-            </tr>
-        </table>
         <table id="recent-expenses">
             <tr>
-                <th colspan="4">Recent Expenses</th>
+                <th colspan="4">RECENT EXPENSES</th>
             </tr>
             <tr>
-                <th>Subject</th>
-                <th>Employee</th>
-                <th>Team</th>
-                <th>Amount</th>
+                <th>SUBJECT</th>
+                <th>MERCHANT</th>
+                <th>TEAM</th>
+                <th>AMOUNT</th>
             </tr>
             <tr>
                 <td>Office Supplies</td>
@@ -129,7 +85,7 @@
             </tr>
         </table>
         <section id="quick-access">
-            <h4>Quick Access</h4>
+            <h4>QUICK ACCESS</h4>
             <div id="new-expense"><i class="fa-solid fa-credit-card"></i>+New Expense</div>
             <div id="new-trip"><i class="fa-solid fa-plane"></i>+Create trip</div>
             <div id="new-income"><i class="fa-solid fa-file-invoice-dollar"></i>+Add income</div>
@@ -246,7 +202,7 @@
     <div id="expenses-div">
         <div id="expenses-div-header">
             <h2>Expenses</h2>
-            <button>Add new expense</button>
+            <button class="add-new-trip-btn">Add new expense</button>
         </div>
         <table id="expenses">
             <tr>
@@ -279,41 +235,89 @@
             </tr>
         </table>
     </div>
-    <div id="trips-div" style="display: block !important;">
+    <div id="trips-div">
         <div id="trips-div-header">
-            <h2>Expenses</h2>
-            <button>Add new expense</button>
+            <h2>Trips</h2>
+            <button>Add new Trip</button>
         </div>
         <table id="trips">
             <tr>
-                <th>TO</th>
                 <th>FROM</th>
+                <th>TO</th>
                 <th>TRIP TYPE</th>
                 <th>DATE</th>
                 <th>AMOUNT SPENT</th>
             </tr>
             <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Abuja</p></div></td>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Abuja</p></div></td>
                 <td>Lagos</td>
+                <td>Festival</td>
+                <td>November_2020</td>
+                <td>N2000</td>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Lagos</p></div></td>
+                <td>Abuja</td>
+                <td>Business</td>
+                <td>November_2020</td>
+                <td>N2000</td>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Borno</p></div></td>
+                <td>Sokoto</td>
+                <td>Leisure</td>
+                <td>November_2020</td>
+                <td>N2000</td>
+            </tr>
+        </table>
+    </div>
+    <div id="incomes-div">
+        <div id="incomes-div-header">
+            <h2>Incomes</h2>
+            <button>Add new Income</button>
+        </div>
+        <table id="incomes">
+            <tr>
+                <th>DETAILS</th>
+                <th>SOURCE</th>
+                <th>AMOUNT RECIEVED</th>
+                <th>DATE</th>
+                <th>PAYMENT METHOD</th>
+            </tr>
+            <tr>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
                 <td>N2000</td>
                 <td>November_2020</td>
                 <td>Cash</td>
             </tr>
             <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Lagos</p></div></td>
-                <td>Abuja</td>
-                <td>Business</td>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
+                <td>N2000</td>
                 <td>November_2020</td>
                 <td>Cash</td>
             </tr>
             <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Borno</p></div></td>
-                <td>Sokoto</td>
+                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-credit-card" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Food catering</p></div></td>
+                <td>Mc Food</td>
                 <td>N2000</td>
                 <td>November_2020</td>
                 <td>Cash</td>
             </tr>
         </table>
+    </div>
+    <div id="setting-div">
+        <div id="setting-header">
+            <h2>Settings</h2>
+        </div>
+        <div id="themes">
+            <p><i class="fa-regular fa-moon"></i> Themes</p>
+            <label for="theme-toggler" id="toggle-btn">
+                <span class="toggle"></span>
+            </label>
+            <input type="checkbox" name="theme" id="theme-toggler">
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="chart.js"></script>

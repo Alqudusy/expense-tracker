@@ -6,10 +6,10 @@ function renderChart() {
   new Chart(ctx1, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['January', 'February', 'Match', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       datasets: [{
-        label: 'Team Spending Trend',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Monthly Expenses',
+        data: [12, 19, 3, 5, 2, 3, 5, 6, 8, 9, 11, 5],
         borderWidth: 1
       }]
     },
@@ -27,10 +27,10 @@ function renderChart() {
   new Chart(ctx2, {
     type: 'bar',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       datasets: [{
         label: 'Day-to-Day Expenses',
-        data: [12, 19, 3, 5, 2, 3],
+        data: [12, 19, 3, 5, 2, 3, 8],
         borderWidth: 1
       }]
     },
