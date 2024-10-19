@@ -36,9 +36,11 @@ class ExpenseApp {
         newTripButton.addEventListener('click', () => {
             this.showNewTripForm();
         });
-        newTripButton2.addEventListener('click', () => {
-            this.showNewTripForm();
-            console.log('Hello-world');
+        Array.from(newTripButton2).forEach((btn) => {
+            btn.addEventListener('click', () => {
+                this.showNewTripForm();
+                console.log('Hello-world');
+            });
         });
         closeTripFormBtn.addEventListener('click', () => {
             this.closeTripForm();
