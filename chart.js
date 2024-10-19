@@ -1,5 +1,3 @@
-renderChart();
-
 function renderChart() {
   const ctx1 = document.getElementById('chart1');
 
@@ -9,7 +7,7 @@ function renderChart() {
       labels: ['January', 'February', 'Match', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
       datasets: [{
         label: 'Monthly Expenses',
-        data: [12, 19, 3, 5, 2, 3, 5, 6, 8, 9, 11, 5],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         borderWidth: 1
       }]
     },
@@ -30,7 +28,7 @@ function renderChart() {
       labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       datasets: [{
         label: 'Day-to-Day Expenses',
-        data: [12, 19, 3, 5, 2, 3, 8],
+        data: [0, 0, 0, 0, 0, 0, 0],
         borderWidth: 1
       }]
     },
@@ -43,3 +41,4 @@ function renderChart() {
     }
   });
 }
+renderChart();

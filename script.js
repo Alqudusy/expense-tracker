@@ -5,11 +5,13 @@ class ExpenseApp {
 
     init() {
         const newExpenseButton = document.querySelector('#new-expense');
+        const newExpenseButton2 = document.querySelector('.add-new-expense-btn');
         const closeExpenseBtn = document.querySelector('#close-expense-btn');
         const newTripButton = document.querySelector('#new-trip');
         const newTripButton2 = document.getElementsByClassName('add-new-trip-btn');
         const closeTripFormBtn = document.querySelector('#close-trip-form');
         const newIncomeBtn = document.querySelector('#new-income');
+        const newIncomeBtn2 = document.querySelector('.add-new-income-btn');
         const closeNewIncomeBtn = document.querySelector('#close-income-form');
         const homeButton = document.querySelector('.home-btn');
         const expensesButton = document.querySelector('.expenses-btn');
@@ -30,6 +32,9 @@ class ExpenseApp {
         newExpenseButton.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
+        newExpenseButton2.addEventListener('click', () => {
+            this.showNewExpenseForm();
+        });
         closeExpenseBtn.addEventListener('click', () => {
             this.closeExpenseForm();
         });
@@ -46,6 +51,9 @@ class ExpenseApp {
             this.closeTripForm();
         });
         newIncomeBtn.addEventListener('click', () => {
+            this.showIncomeForm();
+        });
+        newIncomeBtn2.addEventListener('click', () => {
             this.showIncomeForm();
         });
         closeNewIncomeBtn.addEventListener('click', () => {
@@ -69,6 +77,11 @@ class ExpenseApp {
     }
 
     showNewExpenseForm() {
+        this.closeIncomeForm();
+        this.closeExpenses();
+        this.closeTrips();
+        this.closeSetting();
+        this.closeIncomes();
         const expenseForm = document.querySelector('.expense-form');
         expenseForm.style.display = "flex";
     }  
@@ -94,6 +107,11 @@ class ExpenseApp {
     }
 
     showIncomeForm() {
+        this.closeIncomeForm();
+        this.closeExpenses();
+        this.closeTrips();
+        this.closeSetting();
+        this.closeIncomes();
         const newIncomeForm = document.querySelector('.income-form');
         newIncomeForm.style.display = 'flex';
     }
