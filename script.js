@@ -1,5 +1,6 @@
 class ExpenseApp {
     constructor() {
+        this.firstVisitObligations();
         this.init();
     }
 
@@ -8,7 +9,7 @@ class ExpenseApp {
         const newExpenseButton2 = document.querySelector('.add-new-expense-btn');
         const closeExpenseBtn = document.querySelector('#close-expense-btn');
         const newTripButton = document.querySelector('#new-trip');
-        const newTripButton2 = document.getElementsByClassName('add-new-trip-btn');
+        const newTripButton2 = document.querySelector('.add-new-trip-btn');
         const closeTripFormBtn = document.querySelector('#close-trip-form');
         const newIncomeBtn = document.querySelector('#new-income');
         const newIncomeBtn2 = document.querySelector('.add-new-income-btn');
@@ -41,11 +42,8 @@ class ExpenseApp {
         newTripButton.addEventListener('click', () => {
             this.showNewTripForm();
         });
-        Array.from(newTripButton2).forEach((btn) => {
-            btn.addEventListener('click', () => {
-                this.showNewTripForm();
-                console.log('Hello-world');
-            });
+        newTripButton2.addEventListener('click', () => {
+            this.showNewTripForm();
         });
         closeTripFormBtn.addEventListener('click', () => {
             this.closeTripForm();
@@ -203,6 +201,27 @@ class ExpenseApp {
     closeIncomes() {
         const incomesDiv = document.querySelector('#incomes-div');
         incomesDiv.style.display = 'none';
+    }
+    firstVisitObligations() {
+        const checkVisit = localStorage.getItem('isFirstVisit');
+        const userInfo = localStorage.getItem('user_info') || [];
+        if (checkVisit === "true") {
+            const userName = prompt(`What is your name`);
+            const currentBalance = prompt(`What is your current balance`);
+            const userNameElement = document.querySelector('#profile-name');
+            const userBalance = document.querySelector('.user-balance');
+            if (userName) {
+                userInfo.push(userName);
+                userNameElement.innerText = userName;
+            }
+            if (currentBalance) {
+                userInfo.push(currentBalance);
+                userBalance.innerText = currentBalance;
+            }
+            localStorage.setItem("info", userInfo);
+        } else {
+            console.log('you are visiting for the first time');
+        }
     }
 }
 new ExpenseApp();
