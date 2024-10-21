@@ -1,7 +1,7 @@
 class ExpenseApp {
     constructor() {
-        this.firstVisitObligations();
         this.init();
+        this.updateProfileElements();
     }
 
     init() {
@@ -202,26 +202,54 @@ class ExpenseApp {
         const incomesDiv = document.querySelector('#incomes-div');
         incomesDiv.style.display = 'none';
     }
-    firstVisitObligations() {
-        const checkVisit = localStorage.getItem('isFirstVisit');
-        const userInfo = localStorage.getItem('user_info') || [];
-        if (checkVisit === "true") {
-            const userName = prompt(`What is your name`);
-            const currentBalance = prompt(`What is your current balance`);
-            const userNameElement = document.querySelector('#profile-name');
-            const userBalance = document.querySelector('.user-balance');
-            if (userName) {
-                userInfo.push(userName);
-                userNameElement.innerText = userName;
-            }
-            if (currentBalance) {
-                userInfo.push(currentBalance);
-                userBalance.innerText = currentBalance;
-            }
-            localStorage.setItem("info", userInfo);
-        } else {
-            console.log('you are visiting for the first time');
-        }
+    updateProfileElements() {
+        const userName = document.querySelector('#profile-name');
+        const userBalance = document.querySelector('.user-balance');
+        const userInfo = JSON.parse(localStorage.getItem('user_profile'));
+        userName.innerText = userInfo[0].name;
+        userBalance.innerText = `Balance: ${userInfo[0].balance}`;
     }
 }
-new ExpenseApp();
+class User {
+    constructor(name, balance) {
+        this.name = name;
+        this.balance = balance;
+    }
+}
+class InitializeAndAuthorize {
+    constructor(firstVisit, userInfo) {
+        this.firstVisit = localStorage.getItem('first_visit');
+        this.userInfo = localStorage.getItem('user_profile');
+        this.authorize();
+    }
+    authorize() {
+        if (!this.firstVisit && !this.userInfo) {
+            localStorage.setItem('first_visit', 'true');
+            this.register();
+        } else {
+            new ExpenseApp();
+        }
+    }
+    register() {
+        const name = prompt('Please enter your name');
+        const balance = prompt('Please enter your current balance');
+        if ((name !== null && balance !== null) && (name !== "" && balance !== "")) {
+            const newUser = new User(name, balance);
+            const userProfile = [];
+            userProfile.push(newUser);
+            localStorage.setItem('user_profile', JSON.stringify(userProfile));
+            new ExpenseApp();
+            this.updateProfileElements();
+        } else {
+            this.register();
+        }
+    }
+    updateProfileElements() {
+        const userName = document.querySelector('#profile-name');
+        const userBalance = document.querySelector('.user-balance');
+        const userInfo = JSON.parse(localStorage.getItem('user_profile'));
+        userName.innerText = userInfo[0].name;
+        userBalance.innerText = `Balance: ${userInfo[0].balance}`;
+    }
+}
+new InitializeAndAuthorize();
