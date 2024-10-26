@@ -1,3 +1,9 @@
+class User {
+    constructor(name, balance) {
+        this.name = name;
+        this.balance = balance;
+    }
+}
 class Trips {
     constructor(from, to, ammountSpent, dateOfDeparting, modeOfTransportation, paymentMethod, description) {
         this.from = from;
@@ -9,7 +15,7 @@ class Trips {
         this.Description = description;
     }
 }
-class Expenses {
+class Expense {
     constructor(subject, merchant, date, total, expenseType, paymentMethod, description) {
         this.subject = subject;
         this.merchant = merchant;
@@ -20,7 +26,7 @@ class Expenses {
         this.description = description;
     }
 }
-class Incomes {
+class Income {
     constructor(source, date, total, paymentMethod, description) {
         this.souce = source;
         this.date = date;
@@ -48,12 +54,76 @@ class ExpenseApp {
         this.incomesBtn = document.querySelector('.incomes-btn');
         this.tripForm = document.querySelector('.new-trip-form');
         this.tripFrom = this.tripForm.querySelector('#from');
-        this.tripTo = this.tripForm.querySelector('.to')
+        this.tripTo = this.tripForm.querySelector('.to');
+        this.dateOfDeparting = this.tripForm.querySelector('#date');
+        this.totalAmountSpent = this.tripForm.querySelector('#total');
+        this.modeOfTransportation = this.tripForm.querySelector('#expense-type');
+        this.paymentMethod = this.tripForm.querySelector('#method');
+        this.description = this.tripForm.querySelector('#description');
+        this.submitTripBtn = this.tripForm.querySelector('#submit');
+        this.incomeForm = document.querySelector('.income-form');
+        this.incomeSource = this.incomeForm.querySelector('#source');
+        this.incomeDate = this.incomeForm.querySelector('#date');
+        this.totalIncomeReceived = this.incomeForm.querySelector('#total');
+        this.incomePaymentMethod = this.incomeForm.querySelector('#method');
+        this.incomeDescription = this.incomeForm.querySelector('#description');
+        this.submitIncomeBtn = this.incomeForm.querySelector('#submit');
+        this.expenseForm = document.querySelector('#expense-form');
+        this.expenseSubject = this.expenseForm.querySelector('#subject');
+        this.expenseMerchant = this.expenseForm.querySelector('#merchant');
+        this.expenseDate = this.expenseForm.querySelector('#date');
+        this.expenseTotal = this.expenseForm.querySelector('#total');
+        this.expenseType = this.expenseForm.querySelector('#type');
+        this.expensePaymentMethod = this.expenseForm.querySelector('#method');
+        this.expenseDescription = this.expenseForm.querySelector('#description');
+        this.submitExpenseBtn = this.expenseForm.querySelector('#submit');
         this.init();
         this.updateProfileElements();
     }
 
     init() {
+        this.submitExpenseBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const expenseInfo = new Expense(this.expenseSubject.value, this.expenseMerchant.value, this.expenseDate.value, this.expenseTotal.value, this.expenseType.value, this.expensePaymentMethod.value, this.expenseDescription.value);
+            const expenses = localStorage.getItem('expenses');
+            if (expenses) {
+                const parsedExpenses = JSON.parse(expenses);
+                parsedExpenses.push(expenseInfo);
+                localStorage.setItem('expenses', JSON.stringify(parsedExpenses));
+            } else {
+                const expenses = [];
+                expenses.push(expenseInfo);
+                localStorage.setItem('expenses', JSON.stringify(expenses));
+            }
+        });
+        this.submitIncomeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const incomeInfo = new Income(this.incomeSource.value, this.incomeDate.value, this.totalIncomeReceived.value, this.incomePaymentMethod.value, this.incomeDescription.value);
+            const incomes = localStorage.getItem('incomes');
+            if (incomes) {
+                const parsedIncome = JSON.parse(incomes);
+                parsedIncome.push(incomeInfo);
+                localStorage.setItem('incomes', JSON.stringify(parsedIncome));
+            } else {
+                const incomes = [];
+                incomes.push(incomeInfo);
+                localStorage.setItem('incomes', JSON.stringify(incomes));
+            }
+        });
+        this.submitTripBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.dateOfDeparting.value, this.totalAmountSpent.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
+            const trips = localStorage.getItem('trips');
+            if (trips) {
+                const parsedTrips = JSON.parse(trips);
+                parsedTrips.push(tripsInfo);
+                localStorage.setItem('trips', JSON.stringify(parsedTrips));
+            } else {
+                const trips = [];
+                trips.push(tripsInfo);
+                localStorage.setItem('trips', JSON.stringify(trips));
+            }
+        });
         this.toggleBtn.addEventListener('click', () => {
             const toggle = document.querySelector('.toggle');
             const toggleElement = document.querySelector('#theme-toggler');
@@ -250,12 +320,6 @@ class ExpenseApp {
         } else {
             
         }
-    }
-}
-class User {
-    constructor(name, balance) {
-        this.name = name;
-        this.balance = balance;
     }
 }
 class InitializeAndAuthorize {
