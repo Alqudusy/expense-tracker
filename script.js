@@ -1,26 +1,60 @@
+class Trips {
+    constructor(from, to, ammountSpent, dateOfDeparting, modeOfTransportation, paymentMethod, description) {
+        this.from = from;
+        this.to = to;
+        this.ammountSpent = ammountSpent;
+        this.dateOfDeparting = dateOfDeparting;
+        this.modeOfTransportation = modeOfTransportation;
+        this.paymentMethod = paymentMethod;
+        this.Description = description;
+    }
+}
+class Expenses {
+    constructor(subject, merchant, date, total, expenseType, paymentMethod, description) {
+        this.subject = subject;
+        this.merchant = merchant;
+        this.date = date;
+        this.total = total;
+        this.expenseType = expenseType;
+        this.paymentMethod = paymentMethod;
+        this.description = description;
+    }
+}
+class Incomes {
+    constructor(source, date, total, paymentMethod, description) {
+        this.souce = source;
+        this.date = date;
+        this.total = total;
+        this.paymentMethod = paymentMethod;
+        this.description = description;
+    }
+}
 class ExpenseApp {
     constructor() {
+        this.newExpenseButton = document.querySelector('#new-expense');
+        this.newExpenseButton2 = document.querySelector('.add-new-expense-btn');
+        this.closeExpenseBtn = document.querySelector('#close-expense-btn');
+        this.newTripButton = document.querySelector('#new-trip');
+        this.newTripButton2 = document.querySelector('.add-new-trip-btn');
+        this.closeTripFormBtn = document.querySelector('#close-trip-form');
+        this.newIncomeBtn = document.querySelector('#new-income');
+        this.newIncomeBtn2 = document.querySelector('.add-new-income-btn');
+        this.closeNewIncomeBtn = document.querySelector('#close-income-form');
+        this.homeButton = document.querySelector('.home-btn');
+        this.expensesButton = document.querySelector('.expenses-btn');
+        this.tripsButton = document.querySelector('.trips-btn');
+        this.toggleBtn = document.querySelector('#toggle-btn');
+        this.settingBtn = document.querySelector('.settings-btn');
+        this.incomesBtn = document.querySelector('.incomes-btn');
+        this.tripForm = document.querySelector('.new-trip-form');
+        this.tripFrom = this.tripForm.querySelector('#from');
+        this.tripTo = this.tripForm.querySelector('.to')
         this.init();
         this.updateProfileElements();
     }
 
     init() {
-        const newExpenseButton = document.querySelector('#new-expense');
-        const newExpenseButton2 = document.querySelector('.add-new-expense-btn');
-        const closeExpenseBtn = document.querySelector('#close-expense-btn');
-        const newTripButton = document.querySelector('#new-trip');
-        const newTripButton2 = document.querySelector('.add-new-trip-btn');
-        const closeTripFormBtn = document.querySelector('#close-trip-form');
-        const newIncomeBtn = document.querySelector('#new-income');
-        const newIncomeBtn2 = document.querySelector('.add-new-income-btn');
-        const closeNewIncomeBtn = document.querySelector('#close-income-form');
-        const homeButton = document.querySelector('.home-btn');
-        const expensesButton = document.querySelector('.expenses-btn');
-        const tripsButton = document.querySelector('.trips-btn');
-        const toggleBtn = document.querySelector('#toggle-btn');
-        const settingBtn = document.querySelector('.settings-btn');
-        const incomesBtn = document.querySelector('.incomes-btn');
-        toggleBtn.addEventListener('click', () => {
+        this.toggleBtn.addEventListener('click', () => {
             const toggle = document.querySelector('.toggle');
             const toggleElement = document.querySelector('#theme-toggler');
             if (!toggleElement.checked) {
@@ -30,46 +64,46 @@ class ExpenseApp {
                 toggle.style.transform = 'translateX(0)';
             }
         });
-        newExpenseButton.addEventListener('click', () => {
+        this.newExpenseButton.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
-        newExpenseButton2.addEventListener('click', () => {
+        this.newExpenseButton2.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
-        closeExpenseBtn.addEventListener('click', () => {
+        this.closeExpenseBtn.addEventListener('click', () => {
             this.closeExpenseForm();
         });
-        newTripButton.addEventListener('click', () => {
+        this.newTripButton.addEventListener('click', () => {
             this.showNewTripForm();
         });
-        newTripButton2.addEventListener('click', () => {
+        this.newTripButton2.addEventListener('click', () => {
             this.showNewTripForm();
         });
-        closeTripFormBtn.addEventListener('click', () => {
+        this.closeTripFormBtn.addEventListener('click', () => {
             this.closeTripForm();
         });
-        newIncomeBtn.addEventListener('click', () => {
+        this.newIncomeBtn.addEventListener('click', () => {
             this.showIncomeForm();
         });
-        newIncomeBtn2.addEventListener('click', () => {
+        this.newIncomeBtn2.addEventListener('click', () => {
             this.showIncomeForm();
         });
-        closeNewIncomeBtn.addEventListener('click', () => {
+        this.closeNewIncomeBtn.addEventListener('click', () => {
             this.closeIncomeForm();
         });
-        homeButton.addEventListener('click', () => {
+        this.homeButton.addEventListener('click', () => {
             this.toHome();
         });
-        expensesButton.addEventListener('click', () => {
+        this.expensesButton.addEventListener('click', () => {
             this.showExpenses();
         });
-        tripsButton.addEventListener('click', () => {
+        this.tripsButton.addEventListener('click', () => {
             this.showTrips();
         });
-        settingBtn.addEventListener('click', () => {
+        this.settingBtn.addEventListener('click', () => {
             this.showSettings();
         });
-        incomesBtn.addEventListener('click', () => {
+        this.incomesBtn.addEventListener('click', () => {
             this.showIncomes();
         });
     }
@@ -208,6 +242,14 @@ class ExpenseApp {
         const userInfo = JSON.parse(localStorage.getItem('user_profile'));
         userName.innerText = userInfo[0].name;
         userBalance.innerText = `Balance: ${userInfo[0].balance}`;
+    }
+    saveTrips() {
+        const trips = localStorage.getItem('trips');
+        if (!trips) {
+            
+        } else {
+            
+        }
     }
 }
 class User {
