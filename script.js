@@ -73,7 +73,7 @@ class ExpenseApp {
         this.expenseMerchant = this.expenseForm.querySelector('#merchant');
         this.expenseDate = this.expenseForm.querySelector('#date');
         this.expenseTotal = this.expenseForm.querySelector('#total');
-        this.expenseType = this.expenseForm.querySelector('#type');
+        this.expenseType = this.expenseForm.querySelector('#expense-type');
         this.expensePaymentMethod = this.expenseForm.querySelector('#method');
         this.expenseDescription = this.expenseForm.querySelector('#description');
         this.submitExpenseBtn = this.expenseForm.querySelector('#submit');
@@ -82,8 +82,7 @@ class ExpenseApp {
     }
 
     init() {
-        this.submitExpenseBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+        this.submitExpenseBtn.addEventListener('click', () => {
             const expenseInfo = new Expense(this.expenseSubject.value, this.expenseMerchant.value, this.expenseDate.value, this.expenseTotal.value, this.expenseType.value, this.expensePaymentMethod.value, this.expenseDescription.value);
             const expenses = localStorage.getItem('expenses');
             if (expenses) {
@@ -96,8 +95,7 @@ class ExpenseApp {
                 localStorage.setItem('expenses', JSON.stringify(expenses));
             }
         });
-        this.submitIncomeBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+        this.submitIncomeBtn.addEventListener('click', () => {
             const incomeInfo = new Income(this.incomeSource.value, this.incomeDate.value, this.totalIncomeReceived.value, this.incomePaymentMethod.value, this.incomeDescription.value);
             const incomes = localStorage.getItem('incomes');
             if (incomes) {
@@ -110,8 +108,7 @@ class ExpenseApp {
                 localStorage.setItem('incomes', JSON.stringify(incomes));
             }
         });
-        this.submitTripBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+        this.submitTripBtn.addEventListener('click', () => {
             const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.dateOfDeparting.value, this.totalAmountSpent.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
             const trips = localStorage.getItem('trips');
             if (trips) {
