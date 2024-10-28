@@ -109,7 +109,7 @@ class ExpenseApp {
             }
         });
         this.submitTripBtn.addEventListener('click', () => {
-            const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.dateOfDeparting.value, this.totalAmountSpent.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
+            const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.totalAmountSpent.value, this.dateOfDeparting.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
             const trips = localStorage.getItem('trips');
             if (trips) {
                 const parsedTrips = JSON.parse(trips);

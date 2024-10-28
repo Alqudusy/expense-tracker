@@ -6,6 +6,14 @@ class CurrentTrips {
         this.amount = amount;
     }
 }
+class CurrentExpense {
+    constructor(subject, merchant, date, amount) {
+        this.subject = subject;
+        this.merchant = merchant;
+        this.date = date;
+        this.amount = amount;
+    }
+}
 
 const currentTripsArr = [];
 
@@ -70,3 +78,66 @@ class UpdateCurrentTripsElements {
 }
 
 new UpdateCurrentTripsElements();
+const currentExpensesArr = [];
+
+class UpdateCurrentExpensesElements {
+    constructor() {
+        this.table = document.querySelector('.recent-expenses');
+        this.getRecentTrips();
+    }
+
+    getRecentTrips() {
+        this.savedExpenses = JSON.parse(localStorage.getItem('expenses'));
+
+        const recentExpenses = this.savedExpenses.slice(-2);
+
+        recentExpenses.forEach(expense => {
+            const currentExpenseObj = new CurrentTrips();
+            for (const x in expense) {
+                switch (x) {
+                    case 'subject':
+                        currentExpenseObj.subject = expense[x];
+                        break;
+                    case 'merchant':
+                        currentExpenseObj.merchant = expense[x];
+                        break;
+                    case 'date':
+                        currentExpenseObj.date = expense[x];
+                        break;
+                    case 'total':
+                        currentExpenseObj.amount = expense[x];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            currentExpensesArr.push(currentExpenseObj);
+        });
+
+        currentExpensesArr.forEach((expense) => {
+            const expensesTableRow = document.createElement('tr');
+
+            const subjectCell = document.createElement('td');
+            subjectCell.textContent = expense.subject;
+            expensesTableRow.appendChild(subjectCell);
+
+            const merchantCell = document.createElement('td');
+            merchantCell.textContent = expense.merchant;
+            expensesTableRow.appendChild(merchantCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = expense.date;
+            expensesTableRow.appendChild(dateCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = expense.amount;
+            expensesTableRow.appendChild(amountCell);
+
+            this.table.appendChild(expensesTableRow);
+        });
+
+        console.log(currentExpensesArr);
+    }
+}
+
+new UpdateCurrentExpensesElements();
