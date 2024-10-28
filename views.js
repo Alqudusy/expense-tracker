@@ -14,6 +14,14 @@ class CurrentExpense {
         this.amount = amount;
     }
 }
+class CurrentIncome {
+    constructor(source, date, total, method) {
+        this.source = source;
+        this.date = date;
+        this.total = total;
+        this.method = method;
+    }
+}
 
 const currentTripsArr = [];
 
@@ -141,3 +149,66 @@ class UpdateCurrentExpensesElements {
 }
 
 new UpdateCurrentExpensesElements();
+const currentIncomesArr = [];
+
+class UpdateCurrentIncomesElements {
+    constructor() {
+        this.table = document.querySelector('.recent-incomes');
+        this.getRecentTrips();
+    }
+
+    getRecentTrips() {
+        this.savedIncomes = JSON.parse(localStorage.getItem('expenses'));
+
+        const recentIncomes = this.savedIncomes.slice(-2);
+
+        recentIncomes.forEach(income => {
+            const currentIncomeObj = new CurrentTrips();
+            for (const x in income) {
+                switch (x) {
+                    case 'souce':
+                        currentIncomeObj.source = income[x];
+                        break;
+                    case 'date':
+                        currentIncomeObj.date = income[x];
+                        break;
+                    case 'paymentMethod':
+                        currentIncomeObj.method = income[x];
+                        break;
+                    case 'total':
+                        currentIncomeObj.amount = income[x];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            currentIncomesArr.push(currentIncomeObj);
+        });
+
+        currentIncomesArr.forEach((income) => {
+            const incomesTableRow = document.createElement('tr');
+
+            const subjectCell = document.createElement('td');
+            subjectCell.textContent = income.subject;
+            incomesTableRow.appendChild(subjectCell);
+
+            const merchantCell = document.createElement('td');
+            merchantCell.textContent = income.merchant;
+            incomesTableRow.appendChild(merchantCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = income.date;
+            incomesTableRow.appendChild(dateCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = income.amount;
+            incomesTableRow.appendChild(amountCell);
+
+            this.table.appendChild(incomesTableRow);
+        });
+
+        console.log(currentIncomesArr);
+    }
+}
+
+new UpdateCurrentIncomesElements();
