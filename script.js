@@ -1,7 +1,9 @@
+
 class User {
-    constructor(name, balance) {
+    constructor(name, balance, currency) {
         this.name = name;
         this.balance = balance;
+        this.currency = currency;
     }
 }
 class Trips {
@@ -28,7 +30,7 @@ class Expense {
 }
 class Income {
     constructor(source, date, total, paymentMethod, description) {
-        this.souce = source;
+        this.source = source;
         this.date = date;
         this.total = total;
         this.paymentMethod = paymentMethod;
@@ -307,20 +309,14 @@ class ExpenseApp {
         const userName = document.querySelector('#profile-name');
         const userBalance = document.querySelector('.user-balance');
         const userInfo = JSON.parse(localStorage.getItem('user_profile'));
-        userName.innerText = userInfo[0].name;
-        userBalance.innerText = `Balance: ${userInfo[0].balance}`;
-    }
-    saveTrips() {
-        const trips = localStorage.getItem('trips');
-        if (!trips) {
-            
-        } else {
-            
+        if (userInfo !== null) {
+            userName.innerText = userInfo[0].name;
+            userBalance.innerText = `Balance: ${userInfo[0].balance + " " + userInfo[0].currency}`;
         }
     }
 }
 class InitializeAndAuthorize {
-    constructor(firstVisit, userInfo) {
+    constructor() {
         this.firstVisit = localStorage.getItem('first_visit');
         this.userInfo = localStorage.getItem('user_profile');
         this.authorize();
@@ -331,13 +327,17 @@ class InitializeAndAuthorize {
             this.register();
         } else {
             new ExpenseApp();
+            new UpdateCurrentTripsElements();
+            new UpdateCurrentIncomesElements();
+            new UpdateCurrentExpensesElements();
         }
     }
     register() {
         const name = prompt('Please enter your name');
         const balance = prompt('Please enter your current balance');
-        if ((name !== null && balance !== null) && (name !== "" && balance !== "")) {
-            const newUser = new User(name, balance);
+        const currency = prompt(`Please what is your currency`);
+        if ((name !== null && balance !== null && currency !== null)) {
+            const newUser = new User(name, balance, currency);
             const userProfile = [];
             userProfile.push(newUser);
             localStorage.setItem('user_profile', JSON.stringify(userProfile));

@@ -24,15 +24,18 @@ class CurrentIncome {
 }
 
 const currentTripsArr = [];
+const allTrips = [];
 
 class UpdateCurrentTripsElements {
     constructor() {
+        this.savedTrips = JSON.parse(localStorage.getItem('trips'));
         this.table = document.querySelector('.recent-trips');
-        this.getRecentTrips();
+        if (this.savedTrips !== null) {
+            this.getRecentTrips();
+        }
     }
 
     getRecentTrips() {
-        this.savedTrips = JSON.parse(localStorage.getItem('trips'));
 
         const recentTrips = this.savedTrips.slice(-2);
 
@@ -80,22 +83,22 @@ class UpdateCurrentTripsElements {
 
             this.table.appendChild(tripsTableRow);
         });
-
-        console.log(currentTripsArr);
     }
 }
 
-new UpdateCurrentTripsElements();
+
 const currentExpensesArr = [];
 
 class UpdateCurrentExpensesElements {
     constructor() {
-        this.table = document.querySelector('.recent-expenses');
-        this.getRecentTrips();
+        this.savedExpenses = JSON.parse(localStorage.getItem('expenses'));
+        this.table = document.querySelector('.recent-expenses')
+        if (this.savedExpenses !== null) {
+            this.getRecentTrips();
+        }
     }
 
     getRecentTrips() {
-        this.savedExpenses = JSON.parse(localStorage.getItem('expenses'));
 
         const recentExpenses = this.savedExpenses.slice(-2);
 
@@ -143,30 +146,30 @@ class UpdateCurrentExpensesElements {
 
             this.table.appendChild(expensesTableRow);
         });
-
-        console.log(currentExpensesArr);
     }
 }
 
-new UpdateCurrentExpensesElements();
+
 const currentIncomesArr = [];
 
 class UpdateCurrentIncomesElements {
     constructor() {
+        this.savedIncomes = JSON.parse(localStorage.getItem('incomes'));
         this.table = document.querySelector('.recent-incomes');
-        this.getRecentTrips();
+        if (this.savedIncomes !== null) {
+            this.getRecentIncomes();
+        }
     }
 
-    getRecentTrips() {
-        this.savedIncomes = JSON.parse(localStorage.getItem('expenses'));
+    getRecentIncomes() {
 
         const recentIncomes = this.savedIncomes.slice(-2);
 
         recentIncomes.forEach(income => {
-            const currentIncomeObj = new CurrentTrips();
+            const currentIncomeObj = new CurrentIncome();
             for (const x in income) {
                 switch (x) {
-                    case 'souce':
+                    case 'source':
                         currentIncomeObj.source = income[x];
                         break;
                     case 'date':
@@ -176,7 +179,7 @@ class UpdateCurrentIncomesElements {
                         currentIncomeObj.method = income[x];
                         break;
                     case 'total':
-                        currentIncomeObj.amount = income[x];
+                        currentIncomeObj.total = income[x];
                         break;
                     default:
                         break;
@@ -186,29 +189,27 @@ class UpdateCurrentIncomesElements {
         });
 
         currentIncomesArr.forEach((income) => {
+            console.log(income)
             const incomesTableRow = document.createElement('tr');
 
-            const subjectCell = document.createElement('td');
-            subjectCell.textContent = income.subject;
-            incomesTableRow.appendChild(subjectCell);
-
-            const merchantCell = document.createElement('td');
-            merchantCell.textContent = income.merchant;
-            incomesTableRow.appendChild(merchantCell);
+            const sourceCell = document.createElement('td');
+            sourceCell.textContent = income.source;
+            incomesTableRow.appendChild(sourceCell);
 
             const dateCell = document.createElement('td');
             dateCell.textContent = income.date;
             incomesTableRow.appendChild(dateCell);
 
+            const methodCell = document.createElement('td');
+            methodCell.textContent = income.method;
+            incomesTableRow.appendChild(methodCell);
+
             const amountCell = document.createElement('td');
-            amountCell.textContent = income.amount;
+            amountCell.textContent = income.total;
             incomesTableRow.appendChild(amountCell);
 
             this.table.appendChild(incomesTableRow);
         });
-
-        console.log(currentIncomesArr);
     }
 }
 
-new UpdateCurrentIncomesElements();
