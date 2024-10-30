@@ -93,8 +93,6 @@ class ExpenseApp {
                 userProfile[0].balance = newBalance;
                 localStorage.setItem('user_profile', JSON.stringify(userProfile));
                 this.updateProfileElements();
-                console.log(expenseInfo.total);
-                console.log(parseInt(userProfile[0].balance))
                 if (expenses) {
                     const parsedExpenses = JSON.parse(expenses);
                     parsedExpenses.push(expenseInfo);
@@ -111,6 +109,12 @@ class ExpenseApp {
         this.submitIncomeBtn.addEventListener('click', () => {
             const incomeInfo = new Income(this.incomeSource.value, this.incomeDate.value, this.totalIncomeReceived.value, this.incomePaymentMethod.value, this.incomeDescription.value);
             const incomes = localStorage.getItem('incomes');
+            const userProfile = JSON.parse(localStorage.getItem('user_profile'));
+            const currentBalance = parseInt(userProfile[0].balance);
+            const newBalance = currentBalance + parseInt(incomeInfo.total);
+            userProfile[0].balance = newBalance;
+            localStorage.setItem('user_profile', JSON.stringify(userProfile));
+            this.updateProfileElements();
             if (incomes) {
                 const parsedIncome = JSON.parse(incomes);
                 parsedIncome.push(incomeInfo);
@@ -124,15 +128,25 @@ class ExpenseApp {
         this.submitTripBtn.addEventListener('click', () => {
             const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.totalAmountSpent.value, this.dateOfDeparting.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
             const trips = localStorage.getItem('trips');
-            if (trips) {
-                const parsedTrips = JSON.parse(trips);
-                parsedTrips.push(tripsInfo);
-                localStorage.setItem('trips', JSON.stringify(parsedTrips));
+            const userProfile = JSON.parse(localStorage.getItem('user_profile'));
+            const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
+            userProfile[0].balance = newBalance;
+            localStorage.setItem('user_profile', JSON.stringify(userProfile));
+            this.updateProfileElements();
+            if (parseInt(tripsInfo.ammountSpent) <= parseInt(userProfile[0].balance)) {
+                if (trips) {
+                    const parsedTrips = JSON.parse(trips);
+                    parsedTrips.push(tripsInfo);
+                    localStorage.setItem('trips', JSON.stringify(parsedTrips));
+                } else {
+                    const trips = [];
+                    trips.push(tripsInfo);
+                    localStorage.setItem('trips', JSON.stringify(trips));
+                }
             } else {
-                const trips = [];
-                trips.push(tripsInfo);
-                localStorage.setItem('trips', JSON.stringify(trips));
+                alert('Your balance is not sufficient');
             }
+            console.log('hello');
         });
         this.toggleBtn.addEventListener('click', () => {
             const toggle = document.querySelector('.toggle');
@@ -330,11 +344,14 @@ class InitializeAndAuthorize {
     constructor() {
         this.firstVisit = localStorage.getItem('first_visit');
         this.userInfo = localStorage.getItem('user_profile');
-        this.authorize();
+        if (this.userInfo !== null) {
+            this.authorize();
+        } else {
+            this.register();
+        }
     }
     authorize() {
         if (!this.firstVisit && !this.userInfo) {
-            localStorage.setItem('first_visit', 'true');
             this.register();
         } else {
             new ExpenseApp();
@@ -347,13 +364,14 @@ class InitializeAndAuthorize {
         const name = prompt('Please enter your name');
         const balance = prompt('Please enter your current balance');
         const currency = prompt(`Please what is your currency`);
-        if ((name !== null && balance !== null && currency !== null)) {
+        if ((name !== "" && balance !== "" && currency !== "")) {
             const newUser = new User(name, balance, currency);
             const userProfile = [];
             userProfile.push(newUser);
             localStorage.setItem('user_profile', JSON.stringify(userProfile));
             new ExpenseApp();
             this.updateProfileElements();
+            localStorage.setItem('first_visit', 'true');
         } else {
             this.register();
         }

@@ -210,6 +210,12 @@ class UpdateCurrentIncomesElements {
 
             this.table.appendChild(incomesTableRow);
         });
+        const allIncomes = JSON.parse(localStorage.getItem('incomes'));
+        allIncomes.forEach(income => {
+            for (const x in income) {
+                console.log(income[x]);
+            }
+        });
     }
 }
 
