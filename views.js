@@ -288,3 +288,88 @@ class UpdateAllIncomes {
     }
 }
 new UpdateAllIncomes();
+
+class allExpenses {
+    constructor(subject, merchant, method, type, date, amount, description) {
+        this.subject = subject;
+        this.merchant = merchant;
+        this.method = method;
+        this.type = type;
+        this.date = date;
+        this.amount = amount;
+        this.description = description;
+    }
+}
+const allExpensesArr = [];
+
+class UpdateAllExpense {
+    constructor() {
+        this.expenses = JSON.parse(localStorage.getItem('expenses'));
+        this.expensesTable = document.querySelector('#expenses');
+        this.updateElements();
+    }
+    updateElements() {
+        this.expenses.forEach(expense => {
+            const allExpenseObj = new allExpenses();
+            for (const x in expense) {
+                switch (x) {
+                    case 'date':
+                        allExpenseObj.date = expense[x];
+                        break;
+                    case 'expenseType':
+                        allExpenseObj.type = expense[x];
+                        break;
+                    case 'paymentMethod':
+                        allExpenseObj.method = expense[x];
+                        break;
+                    case 'total':
+                        allExpenseObj.total = expense[x];
+                        break;
+                    case 'description':
+                        allExpenseObj.description = expense[x];
+                        break;
+                    case 'subject':
+                        allExpenseObj.subject = expense[x];
+                        break;
+                    case 'merchant':
+                        allExpenseObj.merchant = expense[x];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            allExpensesArr.push(allExpenseObj);
+        });
+        console.log(allExpensesArr);
+        allIncomeArr.forEach(expense => {
+            const currency = JSON.parse(localStorage.getItem('user_profile'));
+            const expensesTableRow = document.createElement('tr');
+
+            const subjectCell = document.createElement('td');
+            subjectCell.textContent = expense.source;
+            expensesTableRow.appendChild(subjectCell);
+
+            const merchantCell = document.createElement('td');
+            merchantCell.textContent = `${expense.merchant}`;
+            expensesTableRow.appendChild(merchantCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = expense.amount + ' ' + currency[0].currency;
+            expensesTableRow.appendChild(amountCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = expense.date;
+            expensesTableRow.appendChild(dateCell);
+
+            const methodCell = document.createElement('td');
+            methodCell.textContent = `${expense.method}`;
+            expensesTableRow.appendChild(methodCell);
+
+            expensesTableRow.title = expense.description;
+
+            this.expensesTable.appendChild(expensesTableRow);
+
+        });
+    }
+}
+new UpdateAllExpense();
