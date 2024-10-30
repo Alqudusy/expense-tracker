@@ -210,12 +210,81 @@ class UpdateCurrentIncomesElements {
 
             this.table.appendChild(incomesTableRow);
         });
-        const allIncomes = JSON.parse(localStorage.getItem('incomes'));
-        allIncomes.forEach(income => {
-            for (const x in income) {
-                console.log(income[x]);
-            }
-        });
     }
 }
 
+class allIncomes {
+    constructor(source, date, total, method, description) {
+        this.source = source;
+        this.date = date;
+        this.total = total;
+        this.method = method;
+        this.description = description;
+    }
+}
+
+const allIncomeArr = []
+
+class UpdateAllIncomes {
+    constructor() {
+        this.noIncome = document.querySelector('.no-income');
+        this.incomes = JSON.parse(localStorage.getItem('incomes'));
+        this.incomesTable = document.querySelector('#incomes');
+        this.updateElements();
+    }
+    updateElements() {
+        this.incomes.forEach(income => {
+            const allIncomeObj = new allIncomes();
+            for (const x in income) {
+                switch (x) {
+                    case 'source':
+                        allIncomeObj.source = income[x];
+                        break;
+                    case 'date':
+                        allIncomeObj.date = income[x];
+                        break;
+                    case 'paymentMethod':
+                        allIncomeObj.method = income[x];
+                        break;
+                    case 'total':
+                        allIncomeObj.total = income[x];
+                        break;
+                    case 'description':
+                        allIncomeObj.description = income[x];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            allIncomeArr.push(allIncomeObj);
+        });
+        console.log(allIncomeArr);
+        allIncomeArr.forEach(income => {
+            const currency = JSON.parse(localStorage.getItem('user_profile'));
+            const incomesTableRow = document.createElement('tr');
+
+            const sourceCell = document.createElement('td');
+            sourceCell.textContent = income.source;
+            incomesTableRow.appendChild(sourceCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = `${income.total + currency[0].currency}`;
+            incomesTableRow.appendChild(amountCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = income.date;
+            incomesTableRow.appendChild(dateCell);
+
+            const methodCell = document.createElement('td');
+            methodCell.textContent = `${income.method}`;
+            incomesTableRow.appendChild(methodCell);
+
+            incomesTableRow.title = income.description;
+
+            this.incomesTable.appendChild(incomesTableRow);
+
+            this.noIncome.style.display = 'none';
+        });
+    }
+}
+new UpdateAllIncomes();
