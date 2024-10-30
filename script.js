@@ -87,14 +87,25 @@ class ExpenseApp {
         this.submitExpenseBtn.addEventListener('click', () => {
             const expenseInfo = new Expense(this.expenseSubject.value, this.expenseMerchant.value, this.expenseDate.value, this.expenseTotal.value, this.expenseType.value, this.expensePaymentMethod.value, this.expenseDescription.value);
             const expenses = localStorage.getItem('expenses');
-            if (expenses) {
-                const parsedExpenses = JSON.parse(expenses);
-                parsedExpenses.push(expenseInfo);
-                localStorage.setItem('expenses', JSON.stringify(parsedExpenses));
+            const userProfile = JSON.parse(localStorage.getItem('user_profile'));
+            if (parseInt(expenseInfo.total) <= parseInt(userProfile[0].balance)) {
+                const newBalance = userProfile[0].balance - parseInt(expenseInfo.total);
+                userProfile[0].balance = newBalance;
+                localStorage.setItem('user_profile', JSON.stringify(userProfile));
+                this.updateProfileElements();
+                console.log(expenseInfo.total);
+                console.log(parseInt(userProfile[0].balance))
+                if (expenses) {
+                    const parsedExpenses = JSON.parse(expenses);
+                    parsedExpenses.push(expenseInfo);
+                    localStorage.setItem('expenses', JSON.stringify(parsedExpenses));
+                } else {
+                    const expenses = [];
+                    expenses.push(expenseInfo);
+                    localStorage.setItem('expenses', JSON.stringify(expenses));
+                }
             } else {
-                const expenses = [];
-                expenses.push(expenseInfo);
-                localStorage.setItem('expenses', JSON.stringify(expenses));
+                alert('Your expense exceeded your current balance');
             }
         });
         this.submitIncomeBtn.addEventListener('click', () => {

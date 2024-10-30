@@ -38,7 +38,7 @@ class UpdateCurrentTripsElements {
     getRecentTrips() {
 
         const recentTrips = this.savedTrips.slice(-2);
-
+        const currency = JSON.parse(localStorage.getItem('user_profile'));
         recentTrips.forEach(trip => {
             const currentTripObj = new CurrentTrips();
             for (const x in trip) {
@@ -78,7 +78,7 @@ class UpdateCurrentTripsElements {
             tripsTableRow.appendChild(dateCell);
 
             const amountCell = document.createElement('td');
-            amountCell.textContent = trip.amount;
+            amountCell.textContent = `${trip.amount + currency[0].currency}`;
             tripsTableRow.appendChild(amountCell);
 
             this.table.appendChild(tripsTableRow);
@@ -101,7 +101,7 @@ class UpdateCurrentExpensesElements {
     getRecentTrips() {
 
         const recentExpenses = this.savedExpenses.slice(-2);
-
+        const currency = JSON.parse(localStorage.getItem('user_profile'));
         recentExpenses.forEach(expense => {
             const currentExpenseObj = new CurrentTrips();
             for (const x in expense) {
@@ -141,7 +141,7 @@ class UpdateCurrentExpensesElements {
             expensesTableRow.appendChild(dateCell);
 
             const amountCell = document.createElement('td');
-            amountCell.textContent = expense.amount;
+            amountCell.textContent = `${expense.amount + currency[0].currency}`;
             expensesTableRow.appendChild(amountCell);
 
             this.table.appendChild(expensesTableRow);
@@ -188,8 +188,8 @@ class UpdateCurrentIncomesElements {
             currentIncomesArr.push(currentIncomeObj);
         });
 
-        currentIncomesArr.forEach((income) => {
-            console.log(income)
+        currentIncomesArr.forEach(income => {
+            const currency = JSON.parse(localStorage.getItem('user_profile'));
             const incomesTableRow = document.createElement('tr');
 
             const sourceCell = document.createElement('td');
@@ -201,11 +201,11 @@ class UpdateCurrentIncomesElements {
             incomesTableRow.appendChild(dateCell);
 
             const methodCell = document.createElement('td');
-            methodCell.textContent = income.method;
+            methodCell.textContent = `${income.method}`;
             incomesTableRow.appendChild(methodCell);
 
             const amountCell = document.createElement('td');
-            amountCell.textContent = income.total;
+            amountCell.textContent = `${income.total + currency[0].currency}`;
             incomesTableRow.appendChild(amountCell);
 
             this.table.appendChild(incomesTableRow);
