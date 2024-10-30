@@ -24,7 +24,6 @@ class CurrentIncome {
 }
 
 const currentTripsArr = [];
-const allTrips = [];
 
 class UpdateCurrentTripsElements {
     constructor() {
@@ -323,7 +322,7 @@ class UpdateAllExpense {
                         allExpenseObj.method = expense[x];
                         break;
                     case 'total':
-                        allExpenseObj.total = expense[x];
+                        allExpenseObj.amount = expense[x];
                         break;
                     case 'description':
                         allExpenseObj.description = expense[x];
@@ -341,12 +340,12 @@ class UpdateAllExpense {
             allExpensesArr.push(allExpenseObj);
         });
         console.log(allExpensesArr);
-        allIncomeArr.forEach(expense => {
+        allExpensesArr.forEach(expense => {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const expensesTableRow = document.createElement('tr');
 
             const subjectCell = document.createElement('td');
-            subjectCell.textContent = expense.source;
+            subjectCell.textContent = expense.subject;
             expensesTableRow.appendChild(subjectCell);
 
             const merchantCell = document.createElement('td');
@@ -373,3 +372,87 @@ class UpdateAllExpense {
     }
 }
 new UpdateAllExpense();
+class allTrips {
+    constructor(from, to, method, mode, date, amount, description) {
+        this.from = from;
+        this.to = to;
+        this.method = method;
+        this.mode = mode;
+        this.date = date;
+        this.amount = amount;
+        this.description = description;
+    }
+}
+const allTripsArr = [];
+
+class UpdateAllTrips {
+    constructor() {
+        this.trips = JSON.parse(localStorage.getItem('trips'));
+        this.tripsTable = document.querySelector('#trips');
+        this.updateElements();
+    }
+    updateElements() {
+        this.trips.forEach(trip => {
+            const allTripsObj = new allExpenses();
+            for (const x in trip) {
+                switch (x) {
+                    case 'dateOfDeparting':
+                        allTripsObj.date = trip[x];
+                        break;
+                    case 'modeOfTransportation':
+                        allTripsObj.mode = trip[x];
+                        break;
+                    case 'paymentMethod':
+                        allTripsObj.method = trip[x];
+                        break;
+                    case 'ammountSpent':
+                        allTripsObj.amount = trip[x];
+                        break;
+                    case 'description':
+                        allTripsObj.description = trip[x];
+                        break;
+                    case 'from':
+                        allTripsObj.from = trip[x];
+                        break;
+                    case 'to':
+                        allTripsObj.to = trip[x];
+                        break;
+                    default:
+                        break;
+                }
+            }
+            allTripsArr.push(allTripsObj);
+        });
+        console.log(allTripsArr);
+        allTripsArr.forEach(trip => {
+            const currency = JSON.parse(localStorage.getItem('user_profile'));
+            const tripsTableRow = document.createElement('tr');
+
+            const fromCell = document.createElement('td');
+            fromCell.textContent = trip.from;
+            tripsTableRow.appendChild(fromCell);
+
+            const toCell = document.createElement('td');
+            toCell.textContent = `${trip.to}`;
+            tripsTableRow.appendChild(toCell);
+
+            const modeCell = document.createElement('td');
+            modeCell.textContent = trip.mode;
+            tripsTableRow.appendChild(modeCell);
+
+            const dateCell = document.createElement('td');
+            dateCell.textContent = trip.date;
+            tripsTableRow.appendChild(dateCell);
+
+            const amountCell = document.createElement('td');
+            amountCell.textContent = `${trip.amount} ${currency[0].currency}`;
+            tripsTableRow.appendChild(amountCell);
+
+            tripsTableRow.title = `Description: ${trip.description} <br> Mode of transportation: ${trip.method}`;
+
+            this.tripsTable.appendChild(tripsTableRow);
+
+        });
+    }
+}
+new UpdateAllTrips();
