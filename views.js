@@ -286,7 +286,7 @@ class UpdateAllIncomes {
         });
     }
 }
-new UpdateAllIncomes();
+
 
 class allExpenses {
     constructor(subject, merchant, method, type, date, amount, description) {
@@ -371,7 +371,7 @@ class UpdateAllExpense {
         });
     }
 }
-new UpdateAllExpense();
+
 class allTrips {
     constructor(from, to, method, mode, date, amount, description) {
         this.from = from;
@@ -455,4 +455,3 @@ class UpdateAllTrips {
         });
     }
 }
-new UpdateAllTrips();

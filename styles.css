@@ -142,7 +142,7 @@ ul {
   margin-top: 4rem;
   background-color: rgb(196, 196, 196);
   margin-bottom: 3rem;
-  width: 20%;
+  width: 10rem;
   height: 3rem;
   padding: 1rem;
   border-radius: 5px;
@@ -183,109 +183,4 @@ ul {
 #monthly-report canvas {
   width: 50% !important;
   height: 100% !important;
-}
-
-@media (max-width: 1046px) {
-  body {
-    flex-direction: column;
-  }
-  #nav-bar {
-    top: 0;
-    width: 100%;
-    height: 15%;
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: rgba(0, 0, 0, 0.356);
-    backdrop-filter: blur(5px);
-  }
-  .main {
-    position: relative;
-    width: 100%;
-    margin-top: 3.2rem;
-  }
-  .main table {
-    margin-right: 2.5rem;
-  }
-  #profile-info {
-    width: 20%;
-  }
-  #profile-info p {
-    display: none;
-  }
-  #profile-info i {
-    font-size: 25px;
-  }
-  #nav-links {
-    padding: 0;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-  }
-  #nav-links p{
-    display: none;
-  }
-  #profile-info p {
-    font-size: 16px;
-  }
-  #setting-div, #incomes-div, #trips-div, #expenses-div {
-    margin-top: 5.1rem;
-    z-index: 1 !important;
-    width: 100% !important;
-  }
-  #incomes-div, #trips-div, #expenses-div {
-    width: 97% !important;
-  }
-  #form-div {
-    width: 100% !important;
-    flex-direction: column !important;
-    top: 5rem !important;
-    z-index: 1 !important;
-  }
-  #image-input-div {
-    display: none !important;
-  }
-  #form-div form {
-    width: 95% !important;
-    margin-top: 1rem !important;
-    margin-left: 1rem;
-    margin-right: 1rem !important;
-  }
-  #form-div form input[type = "text"],
-  input[type = "date"],
-  input[type = "number"],
-  select {
-    height: 2rem !important;
-  }
-}
-
-
-@media (max-width: 999px) {
-  #quick-access div {
-    font-size: 12px;
-  }
-}
-@media (max-width: 850px) {
-  #quick-access div {
-    font-size: 11px;
-  }
-}
-@media (max-width: 606px) {
-  #quick-access div {
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 4rem;
-    width: 4rem;
-  }
-  #quick-access div p {
-    display: none;
-  }
-  #quick-access div i {
-    font-size: 25px;
-  }
 }

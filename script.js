@@ -342,36 +342,54 @@ class ExpenseApp {
 }
 class InitializeAndAuthorize {
     constructor() {
-        this.firstVisit = localStorage.getItem('first_visit');
-        this.userInfo = localStorage.getItem('user_profile');
-        if (this.userInfo !== null) {
-            this.authorize();
-        } else {
-            this.register();
-        }
-    }
-    authorize() {
+        this.firstVisit = JSON.parse(localStorage.getItem('first_visit'));
+        this.userInfo = JSON.parse(localStorage.getItem('user_profile'));
+        this.incomes = localStorage.getItem('incomes')
+        this.trips = localStorage.getItem('trips');
+        this.expenses = localStorage.getItem('expenses');
         if (!this.firstVisit && !this.userInfo) {
             this.register();
         } else {
+            if (this.incomes !== null) {
+                new UpdateCurrentIncomesElements();
+                new UpdateAllIncomes();
+            }
+            if (this.trips !== null) {
+                new UpdateCurrentTripsElements();
+                new UpdateAllTrips();
+            }
+            if (this.expenses !== null) {
+                new UpdateCurrentExpensesElements();
+                new UpdateAllExpense();
+            }
+            this.updateProfileElements();
             new ExpenseApp();
-            new UpdateCurrentTripsElements();
-            new UpdateCurrentIncomesElements();
-            new UpdateCurrentExpensesElements();
         }
     }
     register() {
         const name = prompt('Please enter your name');
         const balance = prompt('Please enter your current balance');
         const currency = prompt(`Please what is your currency`);
-        if ((name !== "" && balance !== "" && currency !== "")) {
+        if ((name !== "" && balance !== "" && currency !== "") && (name !== null && balance !== null && currency !== null)) {
             const newUser = new User(name, balance, currency);
             const userProfile = [];
             userProfile.push(newUser);
             localStorage.setItem('user_profile', JSON.stringify(userProfile));
-            new ExpenseApp();
+            if (this.incomes !== null) {
+                new UpdateCurrentIncomesElements();
+                new UpdateAllIncomes();
+            }
+            if (this.trips !== null) {
+                new UpdateCurrentTripsElements();
+                new UpdateAllTrips();
+            }
+            if (this.expenses !== null) {
+                new UpdateCurrentExpensesElements();
+                new UpdateAllExpense();
+            }
+            localStorage.setItem('first_visit', JSON.stringify(true));
             this.updateProfileElements();
-            localStorage.setItem('first_visit', 'true');
+            new ExpenseApp();
         } else {
             this.register();
         }
