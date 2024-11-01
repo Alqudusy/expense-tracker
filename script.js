@@ -129,8 +129,6 @@ class ExpenseApp {
             const tripsInfo = new Trips(this.tripFrom.value, this.tripTo.value, this.totalAmountSpent.value, this.dateOfDeparting.value, this.modeOfTransportation.value, this.paymentMethod.value, this.description.value);
             const trips = localStorage.getItem('trips');
             const userProfile = JSON.parse(localStorage.getItem('user_profile'));
-            const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
-            userProfile[0].balance = newBalance;
             localStorage.setItem('user_profile', JSON.stringify(userProfile));
             this.updateProfileElements();
             if (parseInt(tripsInfo.ammountSpent) <= parseInt(userProfile[0].balance)) {
@@ -138,10 +136,14 @@ class ExpenseApp {
                     const parsedTrips = JSON.parse(trips);
                     parsedTrips.push(tripsInfo);
                     localStorage.setItem('trips', JSON.stringify(parsedTrips));
+                    const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
+                    userProfile[0].balance = newBalance;
                 } else {
                     const trips = [];
                     trips.push(tripsInfo);
                     localStorage.setItem('trips', JSON.stringify(trips));
+                    const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
+                    userProfile[0].balance = newBalance;
                 }
             } else {
                 alert('Your balance is not sufficient');
@@ -396,10 +398,14 @@ class InitializeAndAuthorize {
     }
     updateProfileElements() {
         const userName = document.querySelector('#profile-name');
+        const mobileUserName = document.querySelector('#mobile-profile-name');
+        const mobileUserBalance = document.querySelector('.mobile-user-balance')
         const userBalance = document.querySelector('.user-balance');
         const userInfo = JSON.parse(localStorage.getItem('user_profile'));
+        mobileUserName.innerText = userInfo[0].name;
         userName.innerText = userInfo[0].name;
         userBalance.innerText = `Balance: ${userInfo[0].balance}`;
+        mobileUserBalance.innerText = `Balance: ${userInfo[0].balance} ${userInfo[0].currency}`;
     }
 }
 new InitializeAndAuthorize();

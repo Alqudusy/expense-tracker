@@ -12,11 +12,11 @@
 </head>
 <body>
     <nav id="nav-bar">
-        <a id="profile-info">
+        <div id="profile-info">
             <i class="fa-solid fa-user"></i>
             <p id="profile-name">Your Name</p>
             <p class="user-balance">Balance: $1000</p>
-        </a>
+        </div>
         <a id="nav-links" class="home-btn">
             <i class="fas fa-home"></i>
             <p>Home</p>
@@ -53,36 +53,6 @@
                 <th>TEAM</th>
                 <th>AMOUNT</th>
             </tr>
-            <!-- <tr>
-                <td>Office Supplies</td>
-                <td>John smith</td>
-                <td>Marketing</td>
-                <td>$150.00</td>
-            </tr>
-            <tr>
-                <td>Business Lunch</td>
-                <td>Sarah Jade</td>
-                <td>Sales</td>
-                <td>$75.00</td>
-            </tr>
-            <tr>
-                <td>Travel Expenses</td>
-                <td>Mike Brown</td>
-                <td>Operations</td>
-                <td>$450.25</td>
-            </tr>
-            <tr>
-                <td>Client Dinner</td>
-                <td>Jennifer Lee</td>
-                <td>Marketing</td>
-                <td>$120.00</td>
-            </tr>
-            <tr>
-                <td>Hotel</td>
-                <td>David wilson</td>
-                <td>Finance</td>
-                <td>$275.75</td>
-            </tr> -->
         </table>
         <table id="recent-expenses" class="recent-trips">
             <tr>
@@ -94,36 +64,6 @@
                 <th>DATE</th>
                 <th>AMOUNT</th>
             </tr>
-            <!-- <tr>
-                <td>Office Supplies</td>
-                <td>John smith</td>
-                <td>Marketing</td>
-                <td>$150.00</td>
-            </tr>
-            <tr>
-                <td>Business Lunch</td>
-                <td>Sarah Jade</td>
-                <td>Sales</td>
-                <td>$75.00</td>
-            </tr>
-            <tr>
-                <td>Travel Expenses</td>
-                <td>Mike Brown</td>
-                <td>Operations</td>
-                <td>$450.25</td>
-            </tr>
-            <tr>
-                <td>Client Dinner</td>
-                <td>Jennifer Lee</td>
-                <td>Marketing</td>
-                <td>$120.00</td>
-            </tr>
-            <tr>
-                <td>Hotel</td>
-                <td>David wilson</td>
-                <td>Finance</td>
-                <td>$275.75</td>
-            </tr> -->
         </table>
         <table id="recent-expenses" class="recent-incomes">
             <tr>
@@ -135,36 +75,6 @@
                 <th>PAYMENT METHOD</th>
                 <th>AMOUNT</th>
             </tr>
-            <!-- <tr>
-                <td>Office Supplies</td>
-                <td>John smith</td>
-                <td>Marketing</td>
-                <td>$150.00</td>
-            </tr>
-            <tr>
-                <td>Business Lunch</td>
-                <td>Sarah Jade</td>
-                <td>Sales</td>
-                <td>$75.00</td>
-            </tr>
-            <tr>
-                <td>Travel Expenses</td>
-                <td>Mike Brown</td>
-                <td>Operations</td>
-                <td>$450.25</td>
-            </tr>
-            <tr>
-                <td>Client Dinner</td>
-                <td>Jennifer Lee</td>
-                <td>Marketing</td>
-                <td>$120.00</td>
-            </tr>
-            <tr>
-                <td>Hotel</td>
-                <td>David wilson</td>
-                <td>Finance</td>
-                <td>$275.75</td>
-            </tr> -->
         </table>
         <section id="quick-access">
             <h4>QUICK ACCESS</h4>
@@ -172,12 +82,36 @@
             <div id="new-trip"><i class="fa-solid fa-plane"></i><p style="margin: 0; padding: 0;">+Create trip</p></div>
             <div id="new-income"><i class="fa-solid fa-file-invoice-dollar"></i><p style="margin: 0; padding: 0;">+Add income</p></div>
         </section>
-        <div id="monthly-report">
-            <p>Monthly Report</p>
-            <canvas id="chart1"></canvas>
-            <canvas id="chart2"></canvas>
-        </div>
     </main>
+    <div id="mobile-profile-info">
+        <p id="mobile-profile-name">Your Name</p>
+        <p class="mobile-user-balance">Balance: $1000</p>
+    </div>
+    <div id="recent-container">
+        <div id="mobile-recent-expenses">
+            <b>Recent expenses</b>
+        </div>
+        <div id="mobile-recent-trips">
+            <b>Recent trips</b>
+        </div>
+        <div id="mobile-recent-incomes">
+            <b>Recent Incomes</b>
+        </div>
+    </div>
+    <nav class="mobile-nav">
+        <i class="fa-solid fa-user"></i>
+        <i class="fa-solid fa-bars"></i>
+    </nav>
+    <div id="mobile-quick-access">
+        <i class="fa-solid fa-credit-card"></i>
+        <i class="fa-solid fa-plane"></i>
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+    </div>
+    <div id="monthly-report">
+        <p>Monthly Report</p>
+        <canvas id="chart1"></canvas>
+        <canvas id="chart2"></canvas>
+    </div>
     <div id="form-div" class="expense-form">
         <div id="header-div">
             <h2>New Expense Form</h2>
@@ -330,27 +264,7 @@
                 <th>DATE</th>
                 <th>AMOUNT SPENT</th>
             </tr>
-            <!-- <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Abuja</p></div></td>
-                <td>Lagos</td>
-                <td>Festival</td>
-                <td>November_2020</td>
-                <td>N2000</td>
-            </tr>
-            <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Lagos</p></div></td>
-                <td>Abuja</td>
-                <td>Business</td>
-                <td>November_2020</td>
-                <td>N2000</td>
-            </tr>
-            <tr>
-                <td style="display: flex; padding-top: 0.3rem;"><i class="fa-solid fa-plane-departure" style="margin-top: 0.8rem; margin-right: 5px;"></i><div><sup>02-02-2005</sup><p style="margin: 0;">Borno</p></div></td>
-                <td>Sokoto</td>
-                <td>Leisure</td>
-                <td>November_2020</td>
-                <td>N2000</td>
-            </tr> -->
+            <div id="mobile-all"></div>
         </table>
         <h2 class="no-trip">No trips recorded yet</h2>
     </div>
