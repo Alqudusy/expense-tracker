@@ -196,7 +196,7 @@ ul {
   display: none;
 }
 
-#mobile-all {
+#mobile-all-trips, #mobile-all-expenses, #mobile-all-incomes {
   display: none;
 }
 
@@ -303,9 +303,8 @@ ul {
   #incomes, #trips, #expenses {
     display: none;
   }
-  #mobile-all {
+  #mobile-all-expenses, #mobile-all-trips, #mobile-all-incomes {
     display: flex;
-    z-index: 10;
   }
 }
 #mobile-profile-info {

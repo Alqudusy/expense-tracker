@@ -361,6 +361,7 @@ class UpdateAllExpense {
     constructor() {
         this.expenses = JSON.parse(localStorage.getItem('expenses'));
         this.expensesTable = document.querySelector('#expenses');
+        this.allMobileExpenses = document.querySelector('#mobile-all-expenses');
         this.updateElements();
     }
     updateElements() {
@@ -399,28 +400,53 @@ class UpdateAllExpense {
         allExpensesArr.forEach(expense => {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const expensesTableRow = document.createElement('tr');
+            const mobileRow = document.createElement('div');
+
+            const mobileSubject = document.createElement('p');
+            mobileSubject.textContent = `Subject: ${expense.subject}`;
+            mobileRow.appendChild(mobileSubject);
 
             const subjectCell = document.createElement('td');
             subjectCell.textContent = expense.subject;
             expensesTableRow.appendChild(subjectCell);
 
+            const mobileMerchant = document.createElement('p');
+            mobileMerchant.textContent = `Merchant: ${expense.merchant}`;
+            mobileRow.appendChild(mobileMerchant);
+
             const merchantCell = document.createElement('td');
             merchantCell.textContent = `${expense.merchant}`;
             expensesTableRow.appendChild(merchantCell);
+
+            const mobileAmount = document.createElement('p');
+            mobileAmount.textContent = `Amount: ${expense.amount} ${currency[0].currency}`;
+            mobileRow.appendChild(mobileAmount);
 
             const amountCell = document.createElement('td');
             amountCell.textContent = expense.amount + ' ' + currency[0].currency;
             expensesTableRow.appendChild(amountCell);
 
+            const mobileDate = document.createElement('p');
+            mobileDate.textContent = `Date: ${expense.date}`;
+            mobileRow.appendChild(mobileDate);
+
             const dateCell = document.createElement('td');
             dateCell.textContent = expense.date;
             expensesTableRow.appendChild(dateCell);
+
+            const mobileMethod = document.createElement('p');
+            mobileMethod.textContent = `Payment Method: ${expense.method}`;
+            mobileRow.appendChild(mobileMethod);
 
             const methodCell = document.createElement('td');
             methodCell.textContent = `${expense.method}`;
             expensesTableRow.appendChild(methodCell);
 
-            expensesTableRow.title = expense.description;
+            mobileRow.title = `Description: ${expense.description}`
+
+            expensesTableRow.title = `Description: ${expense.description}`;
+
+            this.allMobileExpenses.appendChild(mobileRow);
 
             this.expensesTable.appendChild(expensesTableRow);
 
@@ -445,7 +471,7 @@ class UpdateAllTrips {
     constructor() {
         this.trips = JSON.parse(localStorage.getItem('trips'));
         this.tripsTable = document.querySelector('#trips');
-        this.mobileTrips = document.querySelector('#mobile-all');
+        this.mobileTrips = document.querySelector('#mobile-all-trips');
         this.updateElements();
     }
     updateElements() {
