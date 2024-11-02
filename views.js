@@ -285,6 +285,7 @@ class UpdateAllIncomes {
         this.noIncome = document.querySelector('.no-income');
         this.incomes = JSON.parse(localStorage.getItem('incomes'));
         this.incomesTable = document.querySelector('#incomes');
+        this.mobileIncomes = document.querySelector('#mobile-all-incomes');
         this.updateElements();
     }
     updateElements() {
@@ -317,25 +318,46 @@ class UpdateAllIncomes {
         allIncomeArr.forEach(income => {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const incomesTableRow = document.createElement('tr');
+            const mobileRow = document.createElement('div');
+
+            const mobileSource = document.createElement('p');
+            mobileSource.textContent = `Source: ${income.source}`;
+            mobileRow.appendChild(mobileSource);
+
 
             const sourceCell = document.createElement('td');
             sourceCell.textContent = income.source;
             incomesTableRow.appendChild(sourceCell);
 
+            const mobileAmount = document.createElement('p');
+            mobileAmount.textContent = `Amount: ${income.total} ${currency[0].currency}`;
+            mobileRow.appendChild(mobileAmount);
+
             const amountCell = document.createElement('td');
             amountCell.textContent = `${income.total + currency[0].currency}`;
             incomesTableRow.appendChild(amountCell);
+
+            const mobileDate = document.createElement('p');
+            mobileDate.textContent = `Date: ${income.date}`;
+            mobileRow.appendChild(mobileDate);
+
 
             const dateCell = document.createElement('td');
             dateCell.textContent = income.date;
             incomesTableRow.appendChild(dateCell);
 
+            const mobileMethod = document.createElement('p');
+            mobileMethod.textContent = `Method: ${income.method}`;
+            mobileRow.appendChild(mobileMethod);
+
             const methodCell = document.createElement('td');
             methodCell.textContent = `${income.method}`;
             incomesTableRow.appendChild(methodCell);
 
-            incomesTableRow.title = income.description;
+            mobileRow.title = `Description: ${income.description}`;
+            incomesTableRow.title = `Description: ${income.description}`;
 
+            this.mobileIncomes.appendChild(mobileRow);
             this.incomesTable.appendChild(incomesTableRow);
 
             this.noIncome.style.display = 'none';

@@ -187,7 +187,7 @@ ul {
   background-color: rgb(235, 235, 235);
   border-radius: 5px;
   width: 90%;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
@@ -218,6 +218,7 @@ ul {
   .mobile-nav i {
     font-size: 30px;
     margin-left: 0.5rem;
+    cursor: pointer;
   }
   #profile-info {
     display: none;
@@ -227,6 +228,7 @@ ul {
     background-color: #f1eeee;
     width: 5rem;
     height: 100vh;
+    transform: translateX(-5rem);
   }
   #nav-bar a {
     display: flex;
@@ -251,6 +253,7 @@ ul {
   }
   body {
     align-items: center;
+    overflow-x: hidden;
   }
   #monthly-report canvas {
     width: 100% !important;
@@ -266,9 +269,11 @@ ul {
   #mobile-profile-name {
     font-size: 50px;
     margin: 0;
+    text-align: center;
   }
   .mobile-user-balance {
     font-size: 25px;
+    text-align: center;
   }
   #mobile-quick-access {
     position: fixed;
@@ -304,6 +309,16 @@ ul {
     display: none;
   }
   #mobile-all-expenses, #mobile-all-trips, #mobile-all-incomes {
+    display: flex;
+  }
+  #expenses-div, #trips-div, #incomes-div {
+    transform: translateX(3rem);
+
+  }
+  #setting-div {
+    transform: translateX(0.9rem)
+  }
+  #recent-container {
     display: flex;
   }
 }

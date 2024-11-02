@@ -79,11 +79,23 @@ class ExpenseApp {
         this.expensePaymentMethod = this.expenseForm.querySelector('#method');
         this.expenseDescription = this.expenseForm.querySelector('#description');
         this.submitExpenseBtn = this.expenseForm.querySelector('#submit');
+        this.mobileNewExpenseBtn = document.querySelector('#mobile-new-expense');
+        this.mobileNewTripBtn = document.querySelector('#mobile-new-trip');
+        this.mobileNewIncomeBtn = document.querySelector('#mobile-new-income');
         this.init();
         this.updateProfileElements();
     }
 
     init() {
+        this.mobileNewExpenseBtn.addEventListener('click', () => {
+            this.showNewExpenseForm();
+        });
+        this.mobileNewIncomeBtn.addEventListener('click', () => {
+            this.showIncomeForm();
+        });
+        this.mobileNewTripBtn.addEventListener('click', () => {
+            this.showNewTripForm();
+        });
         this.submitExpenseBtn.addEventListener('click', () => {
             const expenseInfo = new Expense(this.expenseSubject.value, this.expenseMerchant.value, this.expenseDate.value, this.expenseTotal.value, this.expenseType.value, this.expensePaymentMethod.value, this.expenseDescription.value);
             const expenses = localStorage.getItem('expenses');
