@@ -82,11 +82,29 @@ class ExpenseApp {
         this.mobileNewExpenseBtn = document.querySelector('#mobile-new-expense');
         this.mobileNewTripBtn = document.querySelector('#mobile-new-trip');
         this.mobileNewIncomeBtn = document.querySelector('#mobile-new-income');
+        this.showMobileQuickAccess = document.querySelector('#show-mobile-quick-access');
+        this.showMobileNavBar = document.querySelector('#show-mobile-nav-bar');
         this.init();
         this.updateProfileElements();
     }
 
     init() {
+        this.showMobileQuickAccess.addEventListener('click', () => {
+            const quickAccess = document.querySelector('#mobile-quick-access');
+            if (quickAccess.style.transform === 'translateX(0rem)') {
+                quickAccess.style.transform = 'translateX(5rem)'
+            } else {
+                quickAccess.style.transform = 'translateX(0rem)';
+            }
+        })
+        this.showMobileNavBar.addEventListener('click', () => {
+            const navBar = document.querySelector('#nav-bar');
+            if (navBar.style.transform === 'translateX(0rem)') {
+                navBar.style.transform = 'translateX(-5rem)';
+            } else {
+                navBar.style.transform =  'translateX(0rem)';
+            }
+        });
         this.mobileNewExpenseBtn.addEventListener('click', () => {
             this.showNewExpenseForm();
         });
@@ -222,6 +240,10 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
         const expenseForm = document.querySelector('.expense-form');
         expenseForm.style.display = "flex";
     }  
@@ -237,6 +259,10 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
         const newTripForm = document.querySelector('.trip-form');
         newTripForm.style.display = "flex";
     }
@@ -252,6 +278,10 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
         const newIncomeForm = document.querySelector('.income-form');
         newIncomeForm.style.display = 'flex';
     }
@@ -283,6 +313,14 @@ class ExpenseApp {
         if (document.querySelector('#incomes-div').style.display = 'block') {
             this.closeIncomes();
         }
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
+        const navBar = document.querySelector('#nav-bar');
+        if (navBar.style.transform === 'translateX(0rem)') {
+            navBar.style.transform = 'translateX(-5rem)';
+        }
     }
 
     showExpenses() {
@@ -292,6 +330,14 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
+        const navBar = document.querySelector('#nav-bar');
+        if (navBar.style.transform === 'translateX(0rem)') {
+            navBar.style.transform = 'translateX(-5rem)';
+        }
         const expensesTable = document.querySelector('#expenses-div');
         expensesTable.style.display = 'block';
     }
@@ -308,6 +354,14 @@ class ExpenseApp {
         this.closeTripForm();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
+        const navBar = document.querySelector('#nav-bar');
+        if (navBar.style.transform === 'translateX(0rem)') {
+            navBar.style.transform = 'translateX(-5rem)';
+        }
         const tripsTable = document.querySelector('#trips-div');
         tripsTable.style.display = 'block';
     }
@@ -323,6 +377,14 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
+        const navBar = document.querySelector('#nav-bar');
+        if (navBar.style.transform === 'translateX(0rem)') {
+            navBar.style.transform = 'translateX(-5rem)';
+        }
         const settingsDiv = document.querySelector('#setting-div');
         settingsDiv.style.display = 'flex';
     }
@@ -337,6 +399,14 @@ class ExpenseApp {
         this.closeTrips();
         this.closeSetting();
         this.closeIncomes();
+        const quickAccess = document.querySelector('#mobile-quick-access');
+        if (quickAccess.style.transform === 'translateX(0rem)') {
+            quickAccess.style.transform = 'translateX(5rem)'
+        }
+        const navBar = document.querySelector('#nav-bar');
+        if (navBar.style.transform === 'translateX(0rem)') {
+            navBar.style.transform = 'translateX(-5rem)';
+        }
         const incomesDiv = document.querySelector('#incomes-div');
         incomesDiv.style.display = 'block';
     }

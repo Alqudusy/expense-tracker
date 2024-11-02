@@ -214,6 +214,7 @@ ul {
     justify-content: space-between;
     background-color: #f1eeee;
     margin-left: -1rem;
+    z-index: 1;
   }
   .mobile-nav i {
     font-size: 30px;
@@ -229,6 +230,8 @@ ul {
     width: 5rem;
     height: 100vh;
     transform: translateX(-5rem);
+    transition: all 0.5s ease-in-out;
+    z-index: 1005 !important;
   }
   #nav-bar a {
     display: flex;
@@ -286,6 +289,8 @@ ul {
     align-items: center;
     margin-top: 2.9rem;
     font-size: 25px;
+    transform: translateX(5rem);
+    transition: all 0.5s ease;
   }
   #mobile-quick-access i {
     margin-top: 4rem;
@@ -313,7 +318,9 @@ ul {
   }
   #expenses-div, #trips-div, #incomes-div {
     transform: translateX(3rem);
-
+    width: 100% !important;
+    margin-top: 3rem;
+    z-index: 0 !important;
   }
   #setting-div {
     transform: translateX(0.9rem)

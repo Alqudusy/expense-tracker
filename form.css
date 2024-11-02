@@ -96,3 +96,60 @@ form label {
 #form-div form * {
     width: 100%;
 }
+
+@media (max-width: 710px) {
+    #image-input-div {
+        display: none;
+    }
+    #form-div form {
+        width: 100%;
+        transform: translateY(-1rem);
+    }
+    #form-div {
+        transform: translateX(1rem);
+        margin-top: 0;
+        width: 100%;
+    }
+    .cancle-button {
+        z-index: 10;
+    }
+}
+@media (max-width: 915px) {
+    #image-input-div {
+        display: none;
+    }
+    #form-div {
+        transform: translateX(2rem);
+    }
+    #form-div form {
+        width: 100%;
+        margin-top: 1rem;
+    }
+    .cancle-button {
+        z-index: 10;
+    }
+    #form-div form * {
+        height: 2rem;
+        margin: 0;
+    }
+    #form-div form input[type = "text"],
+    input[type = "date"],
+    input[type = "number"],
+    select {
+        height: 2rem;
+        margin-bottom: 0;
+    }
+    form label {
+        font-weight: 300;
+        margin-bottom: 0;
+        margin: 0;
+        padding: 0;
+    }
+    #header-div h2 {
+        font-size: smaller;
+    }
+    button[type = "submit"] {
+        margin-top: 1rem !important;
+        width: 5rem !important;
+    }
+}
