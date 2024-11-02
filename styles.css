@@ -167,6 +167,7 @@ ul {
   padding: 1rem;
   width: 70%;
   height: 30%;
+  transform: translateX(-3rem);
 }
 
 #monthly-report p {
@@ -214,7 +215,6 @@ ul {
     justify-content: space-between;
     background-color: #f1eeee;
     margin-left: -1rem;
-    z-index: 1;
   }
   .mobile-nav i {
     font-size: 30px;
@@ -249,6 +249,7 @@ ul {
     width: 90%;
     height: 50rem;
     gap: 1rem;
+    transform: translateX(-0.6rem);
   }
   #monthly-report p {
     border: none;
@@ -291,6 +292,7 @@ ul {
     font-size: 25px;
     transform: translateX(5rem);
     transition: all 0.5s ease;
+    z-index: 2;
   }
   #mobile-quick-access i {
     margin-top: 4rem;
