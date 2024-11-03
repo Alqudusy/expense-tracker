@@ -168,6 +168,7 @@ ul {
   width: 70%;
   height: 30%;
   transform: translateX(-3rem);
+  margin-top: 3rem;
 }
 
 #monthly-report p {
@@ -329,6 +330,9 @@ ul {
   }
   #recent-container {
     display: flex;
+  }
+  #mobile-incomes {
+    width: 100%;
   }
 }
 #mobile-profile-info {

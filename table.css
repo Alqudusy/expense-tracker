@@ -3,11 +3,12 @@
     position: absolute;
     right: 1.5rem;
     z-index: 101;
-    width: 74%;
+    width: 76%;
     height: 120%;
     background-color: rgb(196, 196, 196);
     padding: 2rem 1rem 2rem 1rem;
     display: none;
+    transform: translateX(2rem);
 }
 
 #trips {

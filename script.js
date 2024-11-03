@@ -168,12 +168,14 @@ class ExpenseApp {
                     localStorage.setItem('trips', JSON.stringify(parsedTrips));
                     const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
                     userProfile[0].balance = newBalance;
+                    localStorage.setItem('user_profile', JSON.stringify(userProfile));
                 } else {
                     const trips = [];
                     trips.push(tripsInfo);
                     localStorage.setItem('trips', JSON.stringify(trips));
                     const newBalance = parseInt(userProfile[0].balance) - parseInt(tripsInfo.ammountSpent);
                     userProfile[0].balance = newBalance;
+                    localStorage.setItem('user_profile', JSON.stringify(userProfile));
                 }
             } else {
                 alert('Your balance is not sufficient');

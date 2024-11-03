@@ -62,7 +62,7 @@ class UpdateCurrentTripsElements {
             currentTripsArr.push(currentTripObj);
         });
 
-        currentTripsArr.forEach((trip) => {
+        currentTripsArr.forEach(trip => {
             const tripsTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
 
@@ -143,7 +143,7 @@ class UpdateCurrentExpensesElements {
             currentExpensesArr.push(currentExpenseObj);
         });
 
-        currentExpensesArr.forEach((expense) => {
+        currentExpensesArr.forEach(expense => {
             const expensesTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
 
@@ -319,6 +319,7 @@ class UpdateAllIncomes {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const incomesTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
+            mobileRow.setAttribute('id', 'mobile-incomes');
 
             const mobileSource = document.createElement('p');
             mobileSource.textContent = `Source: ${income.source}`;
@@ -423,6 +424,7 @@ class UpdateAllExpense {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const expensesTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
+            mobileRow.setAttribute('id', 'mobile-incomes');
 
             const mobileSubject = document.createElement('p');
             mobileSubject.textContent = `Subject: ${expense.subject}`;
