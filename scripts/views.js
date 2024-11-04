@@ -1,28 +1,3 @@
-class CurrentTrips {
-    constructor(from, to, date, amount) {
-        this.from = from;
-        this.to = to;
-        this.date = date;
-        this.amount = amount;
-    }
-}
-class CurrentExpense {
-    constructor(subject, merchant, date, amount) {
-        this.subject = subject;
-        this.merchant = merchant;
-        this.date = date;
-        this.amount = amount;
-    }
-}
-class CurrentIncome {
-    constructor(source, date, total, method) {
-        this.source = source;
-        this.date = date;
-        this.total = total;
-        this.method = method;
-    }
-}
-
 const currentTripsArr = [];
 
 class UpdateCurrentTripsElements {
@@ -268,16 +243,6 @@ class UpdateCurrentIncomesElements {
     }
 }
 
-class allIncomes {
-    constructor(source, date, total, method, description) {
-        this.source = source;
-        this.date = date;
-        this.total = total;
-        this.method = method;
-        this.description = description;
-    }
-}
-
 const allIncomeArr = []
 
 class UpdateAllIncomes {
@@ -367,17 +332,6 @@ class UpdateAllIncomes {
 }
 
 
-class allExpenses {
-    constructor(subject, merchant, method, type, date, amount, description) {
-        this.subject = subject;
-        this.merchant = merchant;
-        this.method = method;
-        this.type = type;
-        this.date = date;
-        this.amount = amount;
-        this.description = description;
-    }
-}
 const allExpensesArr = [];
 
 class UpdateAllExpense {
@@ -478,17 +432,7 @@ class UpdateAllExpense {
     }
 }
 
-class allTrips {
-    constructor(from, to, method, mode, date, amount, description) {
-        this.from = from;
-        this.to = to;
-        this.method = method;
-        this.mode = mode;
-        this.date = date;
-        this.amount = amount;
-        this.description = description;
-    }
-}
+
 const allTripsArr = [];
 
 class UpdateAllTrips {
