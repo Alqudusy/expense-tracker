@@ -40,6 +40,7 @@ class UpdateCurrentTripsElements {
         currentTripsArr.forEach(trip => {
             const tripsTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
+            mobileRow.style.border = '1px solid grey';
 
             const mobileFrom = document.createElement('p');
             mobileFrom.textContent = `From ${trip.from}`;
@@ -121,6 +122,7 @@ class UpdateCurrentExpensesElements {
         currentExpensesArr.forEach(expense => {
             const expensesTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
+            mobileRow.style.border = '1px solid grey';
 
             const mobileSubject = document.createElement('p');
             mobileSubject.textContent = `Subject: ${expense.subject}`;
@@ -204,6 +206,7 @@ class UpdateCurrentIncomesElements {
             const currency = JSON.parse(localStorage.getItem('user_profile'));
             const incomesTableRow = document.createElement('tr');
             const mobileRow = document.createElement('div');
+            mobileRow.style.border = '1px solid grey';
 
             const mobileSource = document.createElement('p');
             mobileSource.textContent = `Source: ${income.source}`;

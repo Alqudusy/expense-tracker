@@ -184,14 +184,25 @@ ul {
 }
 #recent-container {
   padding: 1rem;
-  height: 100%;
-  width: 10rem;
+  height: 100% * 2;
+  width: 100%;
   background-color: rgb(235, 235, 235);
   border-radius: 5px;
   width: 90%;
   display: none;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+#recent-container * {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+#recent-container * p {
+  margin: 0;
+  padding: 0;
 }
 
 #mobile-quick-access {
@@ -318,6 +329,9 @@ ul {
   }
   #mobile-all-expenses, #mobile-all-trips, #mobile-all-incomes {
     display: flex;
+    height: 90%;
+    flex-direction: column;
+    overflow-y: scroll;
   }
   #expenses-div, #trips-div, #incomes-div {
     transform: translateX(3rem);
@@ -330,6 +344,7 @@ ul {
   }
   #recent-container {
     display: flex;
+    overflow-y: visible;
   }
   #mobile-incomes {
     width: 100%;
